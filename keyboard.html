@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard - Peripedia</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="header-wrapper">
+    <div class="header-container container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">P</div>
+        <span class="logo-text">Peri<span class="logo-dot">pedia</span></span>
+      </a>
+
+      <!-- Search component -->
+      <div class="search-wrapper">
+        <div class="search-input-container">
+          <span class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
+          <input type="text" id="global-search-input" class="search-input" placeholder="Search devices or specs..." autocomplete="off">
+        </div>
+        <div id="search-results-dropdown" class="search-results-dropdown hidden"></div>
+      </div>
+
+      <nav class="nav-links-wrapper">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html?filter=input" class="nav-link" id="nav-input">Input</a>
+        <a href="index.html?filter=output" class="nav-link" id="nav-output">Output</a>
+        <a href="compare.html" class="nav-link">Compare Tool</a>
+        <a href="quiz.html" class="nav-link">Quiz Center</a>
+        <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
+        <a href="about.html" class="nav-link">About / Feedback</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button onclick="openApiKeyModal()" class="api-config-btn" title="Configure Gemini API Key" aria-label="Configure API Key">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>API Key</span>
+        </button>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle visual theme mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <main class="main-viewport">
+    <div class="device-detail-container container">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Input</span> &gt; <span class="active-crumb">Keyboard</span>
+      </div>
+
+      <div class="detail-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="detail-sidebar">
+          <div class="sticky-sidebar-nav">
+            <div class="sidebar-device-info">
+              <span class="sidebar-dev-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="6" y1="8" x2="6" y2="8"></line><line x1="10" y1="8" x2="10" y2="8"></line><line x1="14" y1="8" x2="14" y2="8"></line><line x1="18" y1="8" x2="18" y2="8"></line><line x1="6" y1="12" x2="6" y2="12"></line><line x1="10" y1="12" x2="10" y2="12"></line><line x1="14" y1="12" x2="14" y2="12"></line><line x1="18" y1="12" x2="18" y2="12"></line><line x1="7" y1="16" x2="17" y2="16"></line></svg>
+              </span>
+              <h3>Keyboard</h3>
+              <span class="category-badge input">Input Device</span>
+            </div>
+            <ul class="sidebar-links-list">
+              <li><a href="#overview" class="subnav-link active" onclick="scrollToDetailSection('overview-section', this)">Device Overview</a></li>
+              <li><a href="#working" class="subnav-link" onclick="scrollToDetailSection('working-section', this)">Working Principle</a></li>
+              <li><a href="#specs" class="subnav-link" onclick="scrollToDetailSection('specs-section', this)">Specifications</a></li>
+              <li><a href="#subtypes" class="subnav-link" onclick="scrollToDetailSection('subtypes-section', this)">Device Subtypes</a></li>
+              <li><a href="#guide" class="subnav-link" onclick="scrollToDetailSection('guide-section', this)">Buying Guide</a></li>
+              <li><a href="#apps" class="subnav-link" onclick="scrollToDetailSection('apps-section', this)">Real-Life Applications</a></li>
+              <li><a href="#advantages" class="subnav-link" onclick="scrollToDetailSection('advantages-section', this)">Pros & Cons</a></li>
+              <li><a href="#quiz" class="subnav-link" onclick="scrollToDetailSection('quiz-section', this)">Practice Quiz</a></li>
+            </ul>
+            <a href="compare.html" class="sidebar-compare-cta-btn">Compare with another device &rarr;</a>
+          </div>
+        </aside>
+
+        <!-- Main Content Column -->
+        <main class="detail-main-panel">
+          <!-- Overview -->
+          <div class="detail-section" id="overview-section">
+            <h1 class="detail-main-title">Keyboard</h1>
+            <div class="detail-hero-wrapper">
+              <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=800" alt="Keyboard" class="detail-hero-img">
+            </div>
+            <h3 class="section-title">What is a Keyboard?</h3>
+            <p class="section-desc-text">
+              A computer keyboard is one of the primary input devices used with a computer. Similar to an electronic typewriter, a keyboard is composed of buttons that create letters, numbers, and symbols, and perform additional functions. It acts as the primary interface for typing text, executing shortcuts, and navigating operating systems. Keyboards are essential in standard computing environments, programming, office automation, and gaming. Modern keyboards come in various sizes, form factors, and layouts (like QWERTY, DVORAK, and AZERTY), and connect either via wired cables (USB) or wireless technologies (Bluetooth, RF). Specialized versions also exist, such as mechanical keyboards featuring individual physical switches under each key, membrane keyboards utilizing a rubber dome mechanism, and ergonomic keyboards designed to reduce hand strain.
+            </p>
+          </div>
+
+          <!-- Working Principle -->
+          <div class="detail-section" id="working-section">
+            <h3 class="section-title">Working Principle</h3>
+            <p class="section-desc-text">
+              A keyboard operates using an internal key matrix, which is a grid of circuits beneath the keys. When a key is pressed, it completes an electrical connection at a specific intersection of a row and a column. The keyboard controller (a microchip) continuously scans this matrix to detect state changes. When it finds a closed circuit, it filters out temporary noise using a debouncing algorithm. It then identifies the key's scan code, converts it into a digital character code (such as ASCII or Unicode), and sends it to the computer. The operating system's device driver interprets this code and displays the symbol or executes the command.
+            </p>
+          </div>
+
+          <!-- Specifications Table -->
+          <div class="detail-section" id="specs-section">
+            <h3 class="section-title">Technical Specifications</h3>
+            <p class="section-subtitle">Standard specifications and metrics configuration for typical Keyboard units:</p>
+            <div class="table-responsive">
+              <table class="specs-table">
+                <thead>
+                  <tr>
+                    <th>Specification Parameter</th>
+                    <th>Standard Value Range</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="spec-label">Connection Type</td>
+                    <td class="spec-val">Wired USB-C / Wireless Bluetooth 5.1 & 2.4GHz RF</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Number of Keys</td>
+                    <td class="spec-val">104 Standard Keys (Full Size) / 84 Keys (Tenkeyless)</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Switch Type</td>
+                    <td class="spec-val">Mechanical (Cherry MX Blue/Red/Brown) / Membrane (Rubber Dome)</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Layout</td>
+                    <td class="spec-val">QWERTY / AZERTY / QWERTZ / Dvorak / Colemak</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Key Technologies (Subtypes) -->
+          <div class="detail-section" id="subtypes-section">
+            <h3 class="section-title">Key Technologies: Subtype Configurations</h3>
+            <p class="section-subtitle">Keyboards are broadly categorized by their underlying switch technologies and ergonomic layouts. Review the dominant configurations below:</p>
+            <div class="subtypes-grid">
+              <!-- Mechanical -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&q=80&w=400" alt="Mechanical Keyboard" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>Mechanical Keyboard</h4>
+                </div>
+                <div class="subtype-specs">
+                  <div class="sub-spec-row"><span class="sub-spec-label">Mechanism:</span><span class="sub-spec-value">Individual physical switch per key (spring-loaded)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Durability:</span><span class="sub-spec-value">High (50M - 100M presses)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Tactility:</span><span class="sub-spec-value">Highly tactile with audible click / bump feedback</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Suitability:</span><span class="sub-spec-value">Gamers, coders, writers needing precise, fast keystrokes</span></div>
+                </div>
+              </div>
+              
+              <!-- Membrane -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&q=80&w=400" alt="Membrane Keyboard" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>Membrane Keyboard</h4>
+                </div>
+                <div class="subtype-specs">
+                  <div class="sub-spec-row"><span class="sub-spec-label">Mechanism:</span><span class="sub-spec-value">Silicone dome keypress sheet over printed copper tracings</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Durability:</span><span class="sub-spec-value">Moderate (5M - 10M presses)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Tactility:</span><span class="sub-spec-value">Soft, mushy, quiet key feedback</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Suitability:</span><span class="sub-spec-value">Quiet office desks and budget home environments</span></div>
+                </div>
+              </div>
+
+              <!-- Ergonomic -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1626908013351-800ddd734b8a?auto=format&fit=crop&q=80&w=400" alt="Ergonomic Keyboard" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>Ergonomic Keyboard</h4>
+                </div>
+                <div class="subtype-specs">
+                  <div class="sub-spec-row"><span class="sub-spec-label">Mechanism:</span><span class="sub-spec-value">Angled or split keyboard layouts designed for body alignment</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Durability:</span><span class="sub-spec-value">Variable based on switch configuration (membrane or mech)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Tactility:</span><span class="sub-spec-value">Variable based on switch configuration</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Suitability:</span><span class="sub-spec-value">Writers suffering wrist fatigue, RSI, or carpal tunnel strain</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buying Guide Recommendations -->
+          <div class="detail-section" id="guide-section">
+            <h3 class="section-title">Buying Guide & Recommendations</h3>
+            <p class="section-subtitle">Determine which keyboard layout and switch type meets your specific computing objectives:</p>
+            <div class="buying-guide-card">
+              <div class="guide-row">
+                <span class="guide-icon-bullet">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>For Coding, Writing & Gaming:</strong> Buy a <strong>Mechanical Keyboard</strong>. The distinct tactile feedback (brown switches) or speed linear travel (red switches) increases accuracy, typing feedback response, and mechanical lifespan.
+                </div>
+              </div>
+              <div class="guide-row">
+                <span class="guide-icon-bullet">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>For Shared Offices & Call Centers:</strong> Buy a <strong>Membrane Keyboard</strong>. The soft silicone rubber domes provide near-silent key actuation, ensuring you do not disrupt coworkers during intense typing periods.
+                </div>
+              </div>
+              <div class="guide-row">
+                <span class="guide-icon-bullet">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>For Repetitive Strain Injury (RSI) Prevention:</strong> Buy an <strong>Ergonomic Keyboard</strong> (such as split or wave designs). It forces hands, wrists, and forearms into natural rest angles, significantly reducing strain.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Life Applications -->
+          <div class="detail-section" id="apps-section">
+            <h3 class="section-title">Real-Life Applications</h3>
+            <p class="section-subtitle">How the Keyboard is utilized across primary organizational sectors:</p>
+            <div class="apps-grid">
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+                  </span>
+                  <h4>Education Use</h4>
+                </div>
+                <p>Essential for students writing reports, learning computer literacy, learning touch-typing, and programming.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  </span>
+                  <h4>Business Use</h4>
+                </div>
+                <p>Used for creating reports, drafting proposals, writing emails, managing databases, and general data entry.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                  </span>
+                  <h4>Healthcare Use</h4>
+                </div>
+                <p>Used by practitioners for entering patient health records, updating charts, and writing prescription details.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
+                  </span>
+                  <h4>Banking Use</h4>
+                </div>
+                <p>Enables bank operators to input customer account data, log transactions, and execute database search operations.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </span>
+                  <h4>Home Use</h4>
+                </div>
+                <p>Used for casual web browsing, communicating via chats, writing emails, and controls in video games.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 22Z"></path><path d="M12 8V16"></path><path d="M8 12H16"></path></svg>
+                  </span>
+                  <h4>Graphic Design Use</h4>
+                </div>
+                <p>Vital for executing keyboard shortcuts in editing software (Photoshop, Illustrator) to optimize workflow speed.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pros and Cons -->
+          <div class="detail-section" id="advantages-section">
+            <h3 class="section-title">Advantages and Disadvantages</h3>
+            <p class="section-subtitle">Key trade-offs to evaluate when considering Keyboard systems:</p>
+            <div class="pros-cons-grid">
+              <div class="pros-card">
+                <div class="card-pros-header">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pros-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  <h4>Advantages</h4>
+                </div>
+                <ul>
+                  <li>Extremely high efficiency and speed for text input once mastered.</li>
+                  <li>Tactile mechanical switches provide high accuracy and reduce typing errors.</li>
+                  <li>Extensive keyboard shortcuts allow power users to bypass mouse navigation entirely.</li>
+                </ul>
+              </div>
+
+              <div class="cons-card">
+                <div class="card-cons-header">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="cons-icon"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                  <h4>Disadvantages</h4>
+                </div>
+                <ul>
+                  <li>Repetitive typing can lead to physical strains like Carpal Tunnel Syndrome or RSI.</li>
+                  <li>Mechanical switches can be noisy, making them disruptive in quiet office environments.</li>
+                  <li>Not suitable for spatial pointing, drawing, or freehand graphic editing.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Practice Quiz Section -->
+          <div class="detail-section" id="quiz-section">
+            <h3 class="section-title">Practice Quiz</h3>
+            <p class="section-subtitle">Test your knowledge about this device:</p>
+            <div id="quiz-container" data-device="keyboard">
+              <!-- Dynamically populated by JS -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-wrapper">
+    <div class="footer-container container">
+      <div class="footer-text">
+        &copy; 2026 <strong>Peripedia Project Group</strong>. All rights reserved.
+      </div>
+      <div class="footer-academic-badge">
+        CSE Peripheral Systems Course Portfolio
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Scroll back to top of page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <!-- Floating Chatbot Launcher -->
+  <div class="floating-chat-wrapper">
+    <button id="chat-trigger-btn" class="chat-trigger-btn" aria-label="Open AI Assistant Chat">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+    <div id="chat-panel-container" class="chat-panel-container">
+      <div class="chat-panel-header">
+        <div class="chat-panel-title-group">
+          <h4>Peripheral AI Assistant</h4>
+          <span>Active Learning Helper</span>
+        </div>
+        <div class="chat-panel-actions">
+          <button onclick="clearFloatingChat()" title="Clear Chat History">🗑</button>
+          <button onclick="closeFloatingChat()" title="Close Panel">✕</button>
+        </div>
+      </div>
+      <div id="chat-messages-viewport" class="chat-messages-viewport">
+        <!-- Loaded dynamically -->
+      </div>
+      <div class="chat-panel-input-area">
+        <input type="text" id="chat-panel-input" class="chat-panel-input" placeholder="Ask about devices (e.g. DPI)..." onkeydown="if(event.key === 'Enter') sendFloatingChatMessage()">
+        <button id="chat-panel-send-btn" class="chat-panel-send-btn" onclick="sendFloatingChatMessage()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key Config Modal Overlay -->
+  <div id="api-modal-overlay" class="api-modal-overlay">
+    <div class="api-modal-box">
+      <div class="api-modal-header">
+        <span class="api-modal-title">Configure Gemini API</span>
+        <button class="api-modal-close" onclick="closeApiKeyModal()">&times;</button>
+      </div>
+      <div class="api-modal-body">
+        <p>
+          Enter your Gemini API key below. This enables the **AI Chatbot** and **AI Quiz Generator** to run real queries.
+        </p>
+        <p style="font-size:12px; color:var(--text-secondary);">
+          Your key is saved locally in your browser storage and never uploaded anywhere. You can get a free key from Google AI Studio.
+        </p>
+        <input type="password" id="gemini-api-key-input" class="api-input-field" placeholder="Paste your API Key here...">
+        <button class="api-save-btn" onclick="saveApiKey()">Save API Settings</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peripedia is a comprehensive digital educational encyclopedia for computer peripheral devices. Explore specs, principles, and applications of inputs/outputs.">
+  
+  <title>Peripedia - Computer Peripheral Device Encyclopedia</title>
+  
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Shared JavaScript (Defer Loaded) -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- 1. Header & Navigation -->
+  <header class="header-wrapper">
+    <div class="header-container container">
+      
+      <!-- Logo -->
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">P</div>
+        <span class="logo-text">Peri<span class="logo-dot">pedia</span></span>
+      </a>
+
+      <!-- Search Component -->
+      <div class="search-wrapper">
+        <div class="search-input-container">
+          <span class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
+          <input type="text" id="global-search-input" class="search-input" placeholder="Search devices or specs..." autocomplete="off">
+        </div>
+        <!-- Suggestion results -->
+        <div id="search-results-dropdown" class="search-results-dropdown hidden"></div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-links-wrapper">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html?filter=input" class="nav-link" id="nav-input">Input</a>
+        <a href="index.html?filter=output" class="nav-link" id="nav-output">Output</a>
+        <a href="compare.html" class="nav-link">Compare Tool</a>
+        <a href="quiz.html" class="nav-link">Quiz Center</a>
+        <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
+        <a href="about.html" class="nav-link">About / Feedback</a>
+      </nav>
+
+      <!-- Theme Mode & Mobile Action Buttons -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle visual theme mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open mobile navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 2. Main Viewport -->
+  <main class="main-viewport" id="main-viewport">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>Welcome to <span class="accent-text">Peripedia</span></h1>
+        <p class="hero-tagline">The Digital Encyclopedia for Computer Peripheral Devices</p>
+        <p class="hero-desc">Explore deep structural specifications, technical working principles, practical real-life applications, and side-by-side comparative matrices of standard computer inputs and outputs.</p>
+        <div class="hero-buttons">
+          <a href="compare.html" class="btn btn-primary">Try Comparison Tool</a>
+          <a href="faq.html" class="btn btn-secondary">Read FAQs</a>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <div class="glass-orb orb-1"></div>
+        <div class="glass-orb orb-2"></div>
+        <div class="hero-showcase-card">
+          <div class="showcase-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="showcase-title">Interactive System Overview</span>
+          </div>
+          <div class="showcase-body">
+            <div class="showcase-stat">
+              <span class="stat-number">12</span>
+              <span class="stat-label">Core Devices</span>
+            </div>
+            <div class="showcase-stat">
+              <span class="stat-number">24+</span>
+              <span class="stat-label">Real Applications</span>
+            </div>
+            <div class="showcase-stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Academic Detail</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Grid Filter -->
+    <section class="categories-section container">
+      <h2 class="section-title">Explore Core Categories</h2>
+      <div class="category-filters-container">
+        <button class="filter-btn active" onclick="filterHomeCards('all', this)">All Peripherals</button>
+        <button class="filter-btn" onclick="filterHomeCards('input', this)">Input Devices</button>
+        <button class="filter-btn" onclick="filterHomeCards('output', this)">Output Devices</button>
+      </div>
+      
+      <!-- Device Cards Grid -->
+      <div class="devices-grid" id="devices-grid">
+        
+        <!-- Keyboard Card -->
+        <div class="device-card" onclick="window.location.href='keyboard.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=800" alt="Keyboard" loading="lazy">
+            <span class="category-badge input">Input</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="6" y1="8" x2="6" y2="8"></line><line x1="10" y1="8" x2="10" y2="8"></line><line x1="14" y1="8" x2="14" y2="8"></line><line x1="18" y1="8" x2="18" y2="8"></line><line x1="6" y1="12" x2="6" y2="12"></line><line x1="10" y1="12" x2="10" y2="12"></line><line x1="14" y1="12" x2="14" y2="12"></line><line x1="18" y1="12" x2="18" y2="12"></line><line x1="7" y1="16" x2="17" y2="16"></line></svg>
+              </span>
+              <h3>Keyboard</h3>
+            </div>
+            <p class="card-desc">A computer keyboard is one of the primary input devices used to type characters and execute shortcuts...</p>
+            <a href="keyboard.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Mouse Card -->
+        <div class="device-card" onclick="window.location.href='mouse.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&q=80&w=800" alt="Mouse" loading="lazy">
+            <span class="category-badge input">Input</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="7"></rect><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+              </span>
+              <h3>Mouse</h3>
+            </div>
+            <p class="card-desc">A hand-held pointing device that detects two-dimensional motion, providing smooth navigation...</p>
+            <a href="mouse.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Printer Card -->
+        <div class="device-card" onclick="window.location.href='printer.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&q=80&w=800" alt="Printer" loading="lazy">
+            <span class="category-badge output">Output</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              </span>
+              <h3>Printer</h3>
+            </div>
+            <p class="card-desc">An output device that transfers text and graphic data onto physical paper layouts, featuring laser or inkjet...</p>
+            <a href="printer.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Scanner Card -->
+        <div class="device-card" onclick="window.location.href='scanner.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800" alt="Scanner" loading="lazy">
+            <span class="category-badge input">Input</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v18"></path><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="14" x2="16" y2="14"></line><line x1="8" y1="18" x2="16" y2="18"></line></svg>
+              </span>
+              <h3>Scanner</h3>
+            </div>
+            <p class="card-desc">An input device that optically scans pages or images, transforming physical documents into digital files...</p>
+            <a href="scanner.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Monitor Card -->
+        <div class="device-card" onclick="window.location.href='monitor.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&q=80&w=800" alt="Monitor" loading="lazy">
+            <span class="category-badge output">Output</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </span>
+              <h3>Monitor</h3>
+            </div>
+            <p class="card-desc">A display panel that renders computer visual frames, providing high-refresh rate feedback for users...</p>
+            <a href="monitor.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Webcam Card -->
+        <div class="device-card" onclick="window.location.href='webcam.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1603184017905-90be0a61f3a6?auto=format&fit=crop&q=80&w=800" alt="Webcam" loading="lazy">
+            <span class="category-badge input">Input</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+              </span>
+              <h3>Webcam</h3>
+            </div>
+            <p class="card-desc">A digital video camera feeding live visual streams, crucial for remote collaboration and telehealth...</p>
+            <a href="webcam.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Speaker Card -->
+        <div class="device-card" onclick="window.location.href='speaker.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&q=80&w=800" alt="Speaker" loading="lazy">
+            <span class="category-badge output">Output</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              </span>
+              <h3>Speaker</h3>
+            </div>
+            <p class="card-desc">An active output device translating computer electrical frequencies into rich acoustic sound waves...</p>
+            <a href="speaker.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Microphone Card -->
+        <div class="device-card" onclick="window.location.href='microphone.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&q=80&w=800" alt="Microphone" loading="lazy">
+            <span class="category-badge input">Input</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v1a7 7 0 0 1-14 0v-1"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+              </span>
+              <h3>Microphone</h3>
+            </div>
+            <p class="card-desc">A transducer sensor capturing sound wave vibrations, translating them into digital audio tracks...</p>
+            <a href="microphone.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Headphone Card -->
+        <div class="device-card" onclick="window.location.href='headphone.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800" alt="Headphone" loading="lazy">
+            <span class="category-badge output">Output</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+              </span>
+              <h3>Headphone</h3>
+            </div>
+            <p class="card-desc">A pair of small loudspeaker drivers worn on the ears, enabling private high-fidelity listening...</p>
+            <a href="headphone.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Projector Card -->
+        <div class="device-card" onclick="window.location.href='projector.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&q=80&w=800" alt="Projector" loading="lazy">
+            <span class="category-badge output">Output</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </span>
+              <h3>Projector</h3>
+            </div>
+            <p class="card-desc">An optical output device that projects high-definition visual frames onto large scale screens...</p>
+            <a href="projector.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Barcode Reader Card -->
+        <div class="device-card" onclick="window.location.href='barcode-reader.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800" alt="Barcode Reader" loading="lazy">
+            <span class="category-badge input">Input</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5v14M6 5v14M9 5v14M12 5v14M15 5v14M18 5v14M21 5v14"></path></svg>
+              </span>
+              <h3>Barcode Reader</h3>
+            </div>
+            <p class="card-desc">An optical input scanner translating barcode patterns into digital product data coordinates...</p>
+            <a href="barcode-reader.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Joystick Card -->
+        <div class="device-card" onclick="window.location.href='joystick.html'">
+          <div class="card-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=800" alt="Joystick" loading="lazy">
+            <span class="category-badge input">Input</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3a3 3 0 0 0-3-3L9 9a3 3 0 0 0 0 6l9 9a3 3 0 0 0 3-3V3z"></path></svg>
+              </span>
+              <h3>Joystick</h3>
+            </div>
+            <p class="card-desc">A pivoting control column input device delivering high-precision analog flight or motion triggers...</p>
+            <a href="joystick.html" class="card-action-btn">Learn More &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 3. Footer -->
+  <footer class="footer-wrapper">
+    <div class="footer-container container">
+      <div class="footer-text">
+        &copy; 2026 <strong>Peripedia Project Group</strong>. All rights reserved.
+      </div>
+      <div class="footer-academic-badge">
+        CSE Peripheral Systems Course Portfolio
+      </div>
+    </div>
+  </footer>
+
+  <!-- 4. Back-to-Top -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Scroll back to top of page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+
+  <!-- Floating Chatbot Launcher -->
+  <div class="floating-chat-wrapper">
+    <button id="chat-trigger-btn" class="chat-trigger-btn" aria-label="Open AI Assistant Chat">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+    <div id="chat-panel-container" class="chat-panel-container">
+      <div class="chat-panel-header">
+        <div class="chat-panel-title-group">
+          <h4>Peripheral AI Assistant</h4>
+          <span>Active Learning Helper</span>
+        </div>
+        <div class="chat-panel-actions">
+          <button onclick="clearFloatingChat()" title="Clear Chat History">🗑</button>
+          <button onclick="closeFloatingChat()" title="Close Panel">✕</button>
+        </div>
+      </div>
+      <div id="chat-messages-viewport" class="chat-messages-viewport">
+        <!-- Loaded dynamically -->
+      </div>
+      <div class="chat-panel-input-area">
+        <input type="text" id="chat-panel-input" class="chat-panel-input" placeholder="Ask about devices (e.g. DPI)..." onkeydown="if(event.key === 'Enter') sendFloatingChatMessage()">
+        <button id="chat-panel-send-btn" class="chat-panel-send-btn" onclick="sendFloatingChatMessage()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key Config Modal Overlay -->
+  <div id="api-modal-overlay" class="api-modal-overlay">
+    <div class="api-modal-box">
+      <div class="api-modal-header">
+        <span class="api-modal-title">Configure Gemini API</span>
+        <button class="api-modal-close" onclick="closeApiKeyModal()">&times;</button>
+      </div>
+      <div class="api-modal-body">
+        <p>
+          Enter your Gemini API key below. This enables the **AI Chatbot** and **AI Quiz Generator** to run real queries.
+        </p>
+        <p style="font-size:12px; color:var(--text-secondary);">
+          Your key is saved locally in your browser storage and never uploaded anywhere. You can get a free key from Google AI Studio.
+        </p>
+        <input type="password" id="gemini-api-key-input" class="api-input-field" placeholder="Paste your API Key here...">
+        <button class="api-save-btn" onclick="saveApiKey()">Save API Settings</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

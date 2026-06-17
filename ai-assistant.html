@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peripheral AI Assistant - Ask educational questions about computer hardware inputs, outputs, printers, keyboards, mice, and other peripherals.">
+  <title>AI Assistant - Peripedia</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="header-wrapper">
+    <div class="header-container container">
+      
+      <!-- Logo -->
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">P</div>
+        <span class="logo-text">Peri<span class="logo-dot">pedia</span></span>
+      </a>
+
+      <!-- Search Component -->
+      <div class="search-wrapper">
+        <div class="search-input-container">
+          <span class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
+          <input type="text" id="global-search-input" class="search-input" placeholder="Search devices or specs..." autocomplete="off">
+        </div>
+        <div id="search-results-dropdown" class="search-results-dropdown hidden"></div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-links-wrapper">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html?filter=input" class="nav-link" id="nav-input">Input</a>
+        <a href="index.html?filter=output" class="nav-link" id="nav-output">Output</a>
+        <a href="compare.html" class="nav-link">Compare Tool</a>
+        <a href="quiz.html" class="nav-link">Quiz Center</a>
+        <a href="ai-assistant.html" class="nav-link active">AI Assistant</a>
+        <a href="about.html" class="nav-link">About / Feedback</a>
+      </nav>
+
+      <!-- Theme Mode & API Configuration Modal Buttons -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button onclick="openApiKeyModal()" class="api-config-btn" title="Configure Gemini API Key" aria-label="Configure API Key">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>API Key</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle visual theme mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open mobile navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <main class="main-viewport container">
+    
+    <div style="margin-top: 16px;">
+      <h1 class="page-title text-center">Peripheral AI Assistant</h1>
+      <p class="page-subtitle text-center">Ask questions about computer peripheral devices to receive instant structured definitions, working principles, specifications, advantages, and drawbacks.</p>
+      
+      <div class="chat-console-wrapper">
+        <!-- Sidebar suggested questions -->
+        <aside class="chat-sidebar-topics">
+          <span class="chat-sidebar-title">Suggested Inquiries</span>
+          
+          <button class="suggested-q-btn" onclick="triggerSuggestedQuestion('What is DPI in a mouse?')">
+            What is DPI in a mouse?
+          </button>
+          <button class="suggested-q-btn" onclick="triggerSuggestedQuestion('How does a laser printer work?')">
+            How does a laser printer work?
+          </button>
+          <button class="suggested-q-btn" onclick="triggerSuggestedQuestion('Difference between flatbed and handheld scanner?')">
+            Difference between flatbed and handheld scanner?
+          </button>
+          <button class="suggested-q-btn" onclick="triggerSuggestedQuestion('Which keyboard is best for gaming?')">
+            Which keyboard is best for gaming?
+          </button>
+          <button class="suggested-q-btn" onclick="triggerSuggestedQuestion('What are the advantages of optical mouse?')">
+            What are the advantages of optical mouse?
+          </button>
+
+          <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-color); display:flex; flex-direction:column; gap:10px;">
+            <button id="console-api-status-btn" class="api-config-btn" onclick="openApiKeyModal()" style="justify-content:center;">
+              🔑 Configure API Key
+            </button>
+            <button class="btn btn-secondary" onclick="clearConsoleChat()" style="font-size:13px; padding: 8px 12px; width: 100%;">
+              Clear Chat History
+            </button>
+          </div>
+        </aside>
+
+        <!-- Main Chat interface -->
+        <div class="chat-main-console">
+          <!-- Messages Box -->
+          <div id="chat-console-viewport" class="chat-console-viewport">
+            <!-- Dynamically populated via JS -->
+          </div>
+
+          <!-- Input Row -->
+          <div class="chat-panel-input-area" style="padding: 20px;">
+            <input type="text" id="chat-console-input" class="chat-panel-input" style="padding:14px 18px;" placeholder="Ask about computer peripherals..." onkeydown="if(event.key === 'Enter') sendConsoleChatMessage()">
+            <button id="chat-console-send-btn" class="chat-panel-send-btn" style="width: 48px; height: 48px;" onclick="sendConsoleChatMessage()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Floating Chatbot Launcher (Shared) -->
+  <div class="floating-chat-wrapper">
+    <button id="chat-trigger-btn" class="chat-trigger-btn" aria-label="Open AI Assistant Chat">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+    <div id="chat-panel-container" class="chat-panel-container">
+      <div class="chat-panel-header">
+        <div class="chat-panel-title-group">
+          <h4>Peripheral AI Assistant</h4>
+          <span>Active Learning Helper</span>
+        </div>
+        <div class="chat-panel-actions">
+          <button onclick="clearFloatingChat()" title="Clear Chat History">🗑</button>
+          <button onclick="closeFloatingChat()" title="Close Panel">✕</button>
+        </div>
+      </div>
+      <div id="chat-messages-viewport" class="chat-messages-viewport">
+        <!-- Loaded dynamically -->
+      </div>
+      <div class="chat-panel-input-area">
+        <input type="text" id="chat-panel-input" class="chat-panel-input" placeholder="Ask about devices (e.g. DPI)..." onkeydown="if(event.key === 'Enter') sendFloatingChatMessage()">
+        <button id="chat-panel-send-btn" class="chat-panel-send-btn" onclick="sendFloatingChatMessage()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key Config Modal Overlay -->
+  <div id="api-modal-overlay" class="api-modal-overlay">
+    <div class="api-modal-box">
+      <div class="api-modal-header">
+        <span class="api-modal-title">Configure Gemini API</span>
+        <button class="api-modal-close" onclick="closeApiKeyModal()">&times;</button>
+      </div>
+      <div class="api-modal-body">
+        <p>
+          Enter your Gemini API key below. This enables the **AI Chatbot** and **AI Quiz Generator** to run real queries.
+        </p>
+        <p style="font-size:12px; color:var(--text-secondary);">
+          Your key is saved locally in your browser storage and never uploaded anywhere. You can get a free key from Google AI Studio.
+        </p>
+        <input type="password" id="gemini-api-key-input" class="api-input-field" placeholder="Paste your API Key here...">
+        <button class="api-save-btn" onclick="saveApiKey()">Save API Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-wrapper">
+    <div class="footer-container container">
+      <div class="footer-text">
+        &copy; 2026 <strong>Peripedia Project Group</strong>. All rights reserved.
+      </div>
+      <div class="footer-academic-badge">
+        CSE Peripheral Systems Course Portfolio
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Scroll back to top of page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script>
+    // Console specific clear chat helper
+    function clearConsoleChat() {
+      const viewport = document.getElementById("chat-console-viewport");
+      if (viewport) {
+        viewport.innerHTML = "";
+        appendChatMessage("ai", "Chat history cleared. What device parameters should we explore today?", viewport);
+      }
+    }
+  </script>
+
+</body>
+</html>

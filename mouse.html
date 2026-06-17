@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse - Peripedia</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="header-wrapper">
+    <div class="header-container container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">P</div>
+        <span class="logo-text">Peri<span class="logo-dot">pedia</span></span>
+      </a>
+
+      <!-- Search component -->
+      <div class="search-wrapper">
+        <div class="search-input-container">
+          <span class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
+          <input type="text" id="global-search-input" class="search-input" placeholder="Search devices or specs..." autocomplete="off">
+        </div>
+        <div id="search-results-dropdown" class="search-results-dropdown hidden"></div>
+      </div>
+
+      <nav class="nav-links-wrapper">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html?filter=input" class="nav-link" id="nav-input">Input</a>
+        <a href="index.html?filter=output" class="nav-link" id="nav-output">Output</a>
+        <a href="compare.html" class="nav-link">Compare Tool</a>
+        <a href="quiz.html" class="nav-link">Quiz Center</a>
+        <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
+        <a href="about.html" class="nav-link">About / Feedback</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle visual theme mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <main class="main-viewport">
+    <div class="device-detail-container container">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Input</span> &gt; <span class="active-crumb">Mouse</span>
+      </div>
+
+      <div class="detail-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="detail-sidebar">
+          <div class="sticky-sidebar-nav">
+            <div class="sidebar-device-info">
+              <span class="sidebar-dev-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="7"></rect><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+              </span>
+              <h3>Mouse</h3>
+              <span class="category-badge input">Input Device</span>
+            </div>
+            <ul class="sidebar-links-list">
+              <li><a href="#overview" class="subnav-link active" onclick="scrollToDetailSection('overview-section', this)">Device Overview</a></li>
+              <li><a href="#working" class="subnav-link" onclick="scrollToDetailSection('working-section', this)">Working Principle</a></li>
+              <li><a href="#specs" class="subnav-link" onclick="scrollToDetailSection('specs-section', this)">Specifications</a></li>
+              <li><a href="#subtypes" class="subnav-link" onclick="scrollToDetailSection('subtypes-section', this)">Device Subtypes</a></li>
+              <li><a href="#guide" class="subnav-link" onclick="scrollToDetailSection('guide-section', this)">Buying Guide</a></li>
+              <li><a href="#apps" class="subnav-link" onclick="scrollToDetailSection('apps-section', this)">Real-Life Applications</a></li>
+              <li><a href="#advantages" class="subnav-link" onclick="scrollToDetailSection('advantages-section', this)">Pros & Cons</a></li>
+              <li><a href="#quiz" class="subnav-link" onclick="scrollToDetailSection('quiz-section', this)">Practice Quiz</a></li>
+            </ul>
+            <a href="compare.html" class="sidebar-compare-cta-btn">Compare with another device &rarr;</a>
+          </div>
+        </aside>
+
+        <!-- Main Content Column -->
+        <main class="detail-main-panel">
+          <!-- Overview -->
+          <div class="detail-section" id="overview-section">
+            <h1 class="detail-main-title">Mouse</h1>
+            <div class="detail-hero-wrapper">
+              <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&q=80&w=800" alt="Mouse" class="detail-hero-img">
+            </div>
+            <h3 class="section-title">What is a Mouse?</h3>
+            <p class="section-desc-text">
+              A computer mouse is a hand-held pointing device that detects two-dimensional motion relative to a flat surface. This motion is typically translated into the movement of a pointer on a display, allowing smooth control of the graphical user interface (GUI). Users can select, drag, click, and manipulate objects on the screen. The mouse revolutionized personal computing by making it accessible to non-technical users who previously relied on text command-line interfaces. Standard mice include a left and right button, and a central scroll wheel. Specialized designs exist for gaming, ergonomics, and portability. They use optical or laser sensors to track movement over surfaces.
+            </p>
+          </div>
+
+          <!-- Working Principle -->
+          <div class="detail-section" id="working-section">
+            <h3 class="section-title">Working Principle</h3>
+            <p class="section-desc-text">
+              An optical mouse works by emitting light from an LED or laser diode onto the surface below the mouse. A miniature optical sensor (essentially a low-resolution camera) captures thousands of successive images of the surface per second. As the mouse moves, the sensor transmits these frames to an internal Digital Signal Processor (DSP). The DSP analyzes the differences between consecutive frames to calculate the direction and distance of the movement. This relative coordinate change is sent to the computer via USB or wireless signals, which the operating system translates to move the cursor.
+            </p>
+          </div>
+
+          <!-- Specifications Table -->
+          <div class="detail-section" id="specs-section">
+            <h3 class="section-title">Technical Specifications</h3>
+            <p class="section-subtitle">Standard specifications and metrics configuration for typical Mouse units:</p>
+            <div class="table-responsive">
+              <table class="specs-table">
+                <thead>
+                  <tr>
+                    <th>Specification Parameter</th>
+                    <th>Standard Value Range</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="spec-label">DPI</td>
+                    <td class="spec-val">800 - 16,000 DPI (Adjustable DPI levels)</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Polling Rate</td>
+                    <td class="spec-val">125 Hz - 1000 Hz (USB response frequency)</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Connectivity</td>
+                    <td class="spec-val">Wired USB / 2.4GHz Wireless USB Dongle / Bluetooth 5.0</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Sensor Type</td>
+                    <td class="spec-val">Optical (LED red/blue light) / Laser (Infrared diode)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Mouse Subtypes -->
+          <div class="detail-section" id="subtypes-section">
+            <h3 class="section-title">Different Types of Mouse</h3>
+            <p class="section-subtitle">Below is a breakdown of the primary technological configurations and subcategories of mice available today:</p>
+            <div class="subtypes-grid">
+              <!-- Optical Mouse -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&q=80&w=400" alt="Optical Mouse" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>Optical Mouse</h4>
+                </div>
+                <div class="subtype-specs">
+                  <div class="sub-spec-row"><span class="sub-spec-label">Accuracy:</span><span class="sub-spec-value">High (Optimal on cloth/textured surfaces)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">DPI:</span><span class="sub-spec-value">400 - 12,000 DPI</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Cost:</span><span class="sub-spec-value">Low to Moderate ($15 - $50)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Best Use:</span><span class="sub-spec-value">General office usage, competitive gaming on fabric mousepads.</span></div>
+                </div>
+              </div>
+
+              <!-- Laser Mouse -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&q=80&w=400" alt="Laser Mouse" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>Laser Mouse</h4>
+                </div>
+                <div class="subtype-specs">
+                  <div class="sub-spec-row"><span class="sub-spec-label">Accuracy:</span><span class="sub-spec-value">Very High (Can track on glass and glossy surfaces)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">DPI:</span><span class="sub-spec-value">2,000 - 25,000+ DPI</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Cost:</span><span class="sub-spec-value">High ($60 - $120)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Best Use:</span><span class="sub-spec-value">High-precision drafting, travelers working on diverse glass surfaces.</span></div>
+                </div>
+              </div>
+
+              <!-- Wireless Mouse -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1625805708148-983c2307fe5c?auto=format&fit=crop&q=80&w=400" alt="Wireless Mouse" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>Wireless Mouse</h4>
+                </div>
+                <div class="subtype-specs">
+                  <div class="sub-spec-row"><span class="sub-spec-label">Accuracy:</span><span class="sub-spec-value">High (Modern 2.4GHz links match wired speeds)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">DPI:</span><span class="sub-spec-value">800 - 16,000 DPI</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Cost:</span><span class="sub-spec-value">Moderate to High ($30 - $150)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Best Use:</span><span class="sub-spec-value">Clean, wire-free desk layouts, remote presentations, and mobility.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buying Guide Recommendations -->
+          <div class="detail-section" id="guide-section">
+            <h3 class="section-title">Buying Guide & Recommendations</h3>
+            <p class="section-subtitle">Select the tracking technology and form factor aligned with your operating environment:</p>
+            <div class="buying-guide-card">
+              <div class="guide-row">
+                <span class="guide-icon-bullet">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>For Standard Office & Everyday Gaming:</strong> Buy an <strong>Optical Mouse</strong>. It provides superb cursor stability and responsiveness on cloth surfaces/mousepads without unwanted acceleration fluctuations.
+                </div>
+              </div>
+              <div class="guide-row">
+                <span class="guide-icon-bullet">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>For Glass Desks & Travelers:</strong> Buy a <strong>Laser Mouse</strong>. Because lasers detect micro-textures on smooth, polished glass surfaces, you can navigate without carrying a mousepad.
+                </div>
+              </div>
+              <div class="guide-row">
+                <span class="guide-icon-bullet">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>For Laptop Mobility & Minimal Desk Clutter:</strong> Buy a <strong>Wireless Mouse</strong> (2.4GHz RF with Bluetooth switch). It declutters your desk workspace and packs easily into laptop slips for work on the move.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Life Applications -->
+          <div class="detail-section" id="apps-section">
+            <h3 class="section-title">Real-Life Applications</h3>
+            <p class="section-subtitle">How the Mouse is utilized across primary organizational sectors:</p>
+            <div class="apps-grid">
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+                  </span>
+                  <h4>Education Use</h4>
+                </div>
+                <p>Aids younger learners in navigating interactive educational software and online portals intuitively.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  </span>
+                  <h4>Business Use</h4>
+                </div>
+                <p>Used for general file management, database selection, spreadsheet navigation, and presentation design.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                  </span>
+                  <h4>Healthcare Use</h4>
+                </div>
+                <p>Enables clinicians to navigate diagnostic software interfaces, review imaging files, and click fields in EHR systems.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
+                  </span>
+                  <h4>Banking Use</h4>
+                </div>
+                <p>Enables cashiers to rapidly navigate banking interfaces, switch between ledger tabs, and select transaction forms.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </span>
+                  <h4>Home Use</h4>
+                </div>
+                <p>Used for general operating system control, media player navigation, casual browsing, and gaming.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 22Z"></path><path d="M12 8V16"></path><path d="M8 12H16"></path></svg>
+                  </span>
+                  <h4>Graphic Design Use</h4>
+                </div>
+                <p>Invaluable for drawing curves, positioning vectors, dragging timelines in video editors, and precision painting.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pros and Cons -->
+          <div class="detail-section" id="advantages-section">
+            <h3 class="section-title">Advantages and Disadvantages</h3>
+            <p class="section-subtitle">Key trade-offs to evaluate when considering Mouse systems:</p>
+            <div class="pros-cons-grid">
+              <div class="pros-card">
+                <div class="card-pros-header">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pros-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  <h4>Advantages</h4>
+                </div>
+                <ul>
+                  <li>Incredibly intuitive way to interact with graphical user interfaces.</li>
+                  <li>High precision spatial tracking for tasks like graphic design and gaming.</li>
+                  <li>Scroll wheels make navigating large pages, spreadsheets, and files effortless.</li>
+                </ul>
+              </div>
+
+              <div class="cons-card">
+                <div class="card-cons-header">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="cons-icon"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                  <h4>Disadvantages</h4>
+                </div>
+                <ul>
+                  <li>Requires flat, clear desk space, and often a mousepad to track optimally.</li>
+                  <li>Prolonged usage without ergonomic support can lead to wrist pain and tendinitis.</li>
+                  <li>Virtually useless for text entry or keyboard-driven console/shell applications.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Practice Quiz Section -->
+          <div class="detail-section" id="quiz-section">
+            <h3 class="section-title">Practice Quiz</h3>
+            <p class="section-subtitle">Test your knowledge about this device:</p>
+            <div id="quiz-container" data-device="mouse">
+              <!-- Dynamically populated by JS -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-wrapper">
+    <div class="footer-container container">
+      <div class="footer-text">
+        &copy; 2026 <strong>Peripedia Project Group</strong>. All rights reserved.
+      </div>
+      <div class="footer-academic-badge">
+        CSE Peripheral Systems Course Portfolio
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Scroll back to top of page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+
+  <!-- Floating Chatbot Launcher -->
+  <div class="floating-chat-wrapper">
+    <button id="chat-trigger-btn" class="chat-trigger-btn" aria-label="Open AI Assistant Chat">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+    <div id="chat-panel-container" class="chat-panel-container">
+      <div class="chat-panel-header">
+        <div class="chat-panel-title-group">
+          <h4>Peripheral AI Assistant</h4>
+          <span>Active Learning Helper</span>
+        </div>
+        <div class="chat-panel-actions">
+          <button onclick="clearFloatingChat()" title="Clear Chat History">🗑</button>
+          <button onclick="closeFloatingChat()" title="Close Panel">✕</button>
+        </div>
+      </div>
+      <div id="chat-messages-viewport" class="chat-messages-viewport">
+        <!-- Loaded dynamically -->
+      </div>
+      <div class="chat-panel-input-area">
+        <input type="text" id="chat-panel-input" class="chat-panel-input" placeholder="Ask about devices (e.g. DPI)..." onkeydown="if(event.key === 'Enter') sendFloatingChatMessage()">
+        <button id="chat-panel-send-btn" class="chat-panel-send-btn" onclick="sendFloatingChatMessage()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key Config Modal Overlay -->
+  <div id="api-modal-overlay" class="api-modal-overlay">
+    <div class="api-modal-box">
+      <div class="api-modal-header">
+        <span class="api-modal-title">Configure Gemini API</span>
+        <button class="api-modal-close" onclick="closeApiKeyModal()">&times;</button>
+      </div>
+      <div class="api-modal-body">
+        <p>
+          Enter your Gemini API key below. This enables the **AI Chatbot** and **AI Quiz Generator** to run real queries.
+        </p>
+        <p style="font-size:12px; color:var(--text-secondary);">
+          Your key is saved locally in your browser storage and never uploaded anywhere. You can get a free key from Google AI Studio.
+        </p>
+        <input type="password" id="gemini-api-key-input" class="api-input-field" placeholder="Paste your API Key here...">
+        <button class="api-save-btn" onclick="saveApiKey()">Save API Settings</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

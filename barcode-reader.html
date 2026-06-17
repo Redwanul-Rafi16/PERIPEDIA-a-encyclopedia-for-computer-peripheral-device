@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barcode Reader - Peripedia</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="header-wrapper">
+    <div class="header-container container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">P</div>
+        <span class="logo-text">Peri<span class="logo-dot">pedia</span></span>
+      </a>
+
+      <!-- Search component -->
+      <div class="search-wrapper">
+        <div class="search-input-container">
+          <span class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
+          <input type="text" id="global-search-input" class="search-input" placeholder="Search devices or specs..." autocomplete="off">
+        </div>
+        <div id="search-results-dropdown" class="search-results-dropdown hidden"></div>
+      </div>
+
+      <nav class="nav-links-wrapper">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html?filter=input" class="nav-link" id="nav-input">Input</a>
+        <a href="index.html?filter=output" class="nav-link" id="nav-output">Output</a>
+        <a href="compare.html" class="nav-link">Compare Tool</a>
+        <a href="quiz.html" class="nav-link">Quiz Center</a>
+        <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
+        <a href="about.html" class="nav-link">About / Feedback</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle visual theme mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <main class="main-viewport">
+    <div class="device-detail-container container">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Input</span> &gt; <span class="active-crumb">Barcode Reader</span>
+      </div>
+
+      <div class="detail-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="detail-sidebar">
+          <div class="sticky-sidebar-nav">
+            <div class="sidebar-device-info">
+              <span class="sidebar-dev-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5v14M6 5v14M9 5v14M12 5v14M15 5v14M18 5v14M21 5v14"></path></svg>
+              </span>
+              <h3>Barcode Reader</h3>
+              <span class="category-badge input">Input Device</span>
+            </div>
+            <ul class="sidebar-links-list">
+              <li><a href="#overview" class="subnav-link active" onclick="scrollToDetailSection('overview-section', this)">Device Overview</a></li>
+              <li><a href="#working" class="subnav-link" onclick="scrollToDetailSection('working-section', this)">Working Principle</a></li>
+              <li><a href="#specs" class="subnav-link" onclick="scrollToDetailSection('specs-section', this)">Specifications</a></li>
+              <li><a href="#subtypes" class="subnav-link" onclick="scrollToDetailSection('subtypes-section', this)">Device Subtypes</a></li>
+              <li><a href="#guide" class="subnav-link" onclick="scrollToDetailSection('guide-section', this)">Buying Guide</a></li>
+              <li><a href="#apps" class="subnav-link" onclick="scrollToDetailSection('apps-section', this)">Real-Life Applications</a></li>
+              <li><a href="#advantages" class="subnav-link" onclick="scrollToDetailSection('advantages-section', this)">Pros & Cons</a></li>
+              <li><a href="#quiz" class="subnav-link" onclick="scrollToDetailSection('quiz-section', this)">Practice Quiz</a></li>
+            </ul>
+            <a href="compare.html" class="sidebar-compare-cta-btn">Compare with another device &rarr;</a>
+          </div>
+        </aside>
+
+        <!-- Main Content Column -->
+        <main class="detail-main-panel">
+          <!-- Overview -->
+          <div class="detail-section" id="overview-section">
+            <h1 class="detail-main-title">Barcode Reader</h1>
+            <div class="detail-hero-wrapper">
+              <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800" alt="Barcode Reader" class="detail-hero-img">
+            </div>
+            <h3 class="section-title">What is a Barcode Reader?</h3>
+            <p class="section-desc-text">
+              A barcode reader (or barcode scanner) is an optical input peripheral device that reads printed barcodes, decodes the data contained within the pattern, and transmits the information to a computer. Similar to a standard image scanner, it contains a light source, a focusing lens, and a light sensor that translates optical fluctuations into electrical waveforms. Barcode readers are essential in supermarkets, retail checkouts, industrial warehouses, logistical sorting hubs, and libraries, enabling instantaneous item tracking. By emulating standard keyboard keystrokes, barcode scanners integrate seamlessly with database software without requiring specialized drivers.
+            </p>
+          </div>
+
+          <!-- Working Principle -->
+          <div class="detail-section" id="working-section">
+            <h3 class="section-title">Working Principle</h3>
+            <p class="section-desc-text">
+              A barcode reader works by projecting a beam of red light (LED or laser) across a barcode. The dark black bars of the code absorb the light, while the light-colored spaces reflect it back. A photosensitive sensor (such as a photodiode or CCD line array) detects the reflected light levels, generating an analog electrical signal of varying voltage. An internal decoder circuit processes this signal, measuring the relative widths of the bars and spaces, and translates the wave pattern into matching alphanumeric characters. The reader then sends this text data to the host computer, usually mimicking a rapid keyboard entry sequence.
+            </p>
+          </div>
+
+          <!-- Specifications Table -->
+          <div class="detail-section" id="specs-section">
+            <h3 class="section-title">Technical Specifications</h3>
+            <p class="section-subtitle">Standard specifications and metrics configuration for typical Barcode Reader units:</p>
+            <div class="table-responsive">
+              <table class="specs-table">
+                <thead>
+                  <tr>
+                    <th>Specification Parameter</th>
+                    <th>Standard Value Range</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="spec-label">Scan Technology</td>
+                    <td class="spec-val">Laser Diode line scan / 2D Imager (CMOS area digital camera sensor)</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Scan Rate</td>
+                    <td class="spec-val">100 - 500 scans per second (Up to 1,000+ for omnidirectional presentation units)</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Max Read Distance</td>
+                    <td class="spec-val">1 inch to 3 feet (Standard close-range) / Up to 30 feet (Extended range warehouse scanners)</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Decoding Capability</td>
+                    <td class="spec-val">1D linear codes (UPC/EAN, Code 128) / 2D codes (QR Codes, PDF417, Data Matrix)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Barcode Reader Subtypes -->
+          <div class="detail-section" id="subtypes-section">
+            <h3 class="section-title">Different Types of Barcode Reader</h3>
+            <p class="section-subtitle">Below is a breakdown of the primary technological configurations and scan engines of barcode readers available today:</p>
+            <div class="subtypes-grid">
+              <!-- Handheld Laser Scanner -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=400" alt="Handheld Laser Scanner" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>Handheld Laser Scanner</h4>
+                </div>
+                <div class="subtype-specs">
+                  <div class="sub-spec-row"><span class="sub-spec-label">Scan Engine:</span><span class="sub-spec-value">Single red laser diode and oscillating mirror</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Read Speed:</span><span class="sub-spec-value">Fast (100 scans/sec; line must align with barcode)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Supported Codes:</span><span class="sub-spec-value">1D linear barcodes only (UPC, EAN, Code 39)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Typical Use:</span><span class="sub-spec-value">Retail point-of-sale cash registers and book library indexing.</span></div>
+                </div>
+              </div>
+              <!-- Omnidirectional Presentation Scanner -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=400" alt="Omnidirectional Presentation Scanner" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>Omnidirectional Presentation Scanner</h4>
+                </div>
+                <div class="subtype-specs">
+                  <div class="sub-spec-row"><span class="sub-spec-label">Scan Engine:</span><span class="sub-spec-value">Multi-line laser grid or rastering mirrors</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Read Speed:</span><span class="sub-spec-value">Extremely Fast (1,000+ scans/sec; scans at any orientation)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Supported Codes:</span><span class="sub-spec-value">1D linear barcodes only</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Typical Use:</span><span class="sub-spec-value">High-throughput supermarket checkout lanes and package sorting.</span></div>
+                </div>
+              </div>
+              <!-- 2D Area Imager -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400" alt="2D Area Imager" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>2D Area Imager</h4>
+                </div>
+                <div class="subtype-specs">
+                  <div class="sub-spec-row"><span class="sub-spec-label">Scan Engine:</span><span class="sub-spec-value">2D CMOS camera image sensor with LED illumination</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Read Speed:</span><span class="sub-spec-value">Very Fast (Reads codes from screens, damaged labels, any angle)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Supported Codes:</span><span class="sub-spec-value">1D & 2D codes (QR Codes, PDF417, Data Matrix)</span></div>
+                  <div class="sub-spec-row"><span class="sub-spec-label">Typical Use:</span><span class="sub-spec-value">Mobile ticketing, boarding passes, warehouse stock tracking, and pharmacy logs.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buying Guide Recommendations -->
+          <div class="detail-section" id="guide-section">
+            <h3 class="section-title">Buying Guide & Recommendations</h3>
+            <p class="section-subtitle">Determine which barcode scanner styling matches your scan velocity and code formatting standards:</p>
+            <div class="buying-guide-card">
+              <div class="guide-row">
+                <span class="guide-icon-bullet">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>For Standard Retail Stores & Checkouts:</strong> Buy a <strong>Handheld Laser Scanner</strong>. It is lightweight, durable, highly cost-effective, and reads standard 1D product barcodes instantly.
+                </div>
+              </div>
+              <div class="guide-row">
+                <span class="guide-icon-bullet">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>For Supermarkets & High-Speed Checkout:</strong> Buy an <strong>Omnidirectional Presentation Scanner</strong>. Its multi-line laser grid reads barcodes at any angle, allowing cashiers to swipe items rapidly without aligning them.
+                </div>
+              </div>
+              <div class="guide-row">
+                <span class="guide-icon-bullet">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>For QR Codes, Warehouses & Screen Scanning:</strong> Buy a <strong>2D Area Imager</strong>. Since it uses a digital camera sensor, it can scan QR codes from smartphone screens and read damaged barcodes in rough warehouse environments.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Life Applications -->
+          <div class="detail-section" id="apps-section">
+            <h3 class="section-title">Real-Life Applications</h3>
+            <p class="section-subtitle">How the Barcode Reader is utilized across primary organizational sectors:</p>
+            <div class="apps-grid">
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+                  </span>
+                  <h4>Education Use</h4>
+                </div>
+                <p>Used in school and university libraries to scan student ID cards and track checkouts of textbook volumes.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  </span>
+                  <h4>Business Use</h4>
+                </div>
+                <p>Crucial for retail point-of-sale cash registers, catalog indexing, inventory tracking, and warehouse shipping operations.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                  </span>
+                  <h4>Healthcare Use</h4>
+                </div>
+                <p>Allows scanning patient wristbands to confirm identities, tracking lab specimen tubes, and verifying medications.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
+                  </span>
+                  <h4>Banking Use</h4>
+                </div>
+                <p>Used for scanning barcodes on utility bill invoices, transaction receipts, and auditing lockbox check envelopes.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </span>
+                  <h4>Home Use</h4>
+                </div>
+                <p>Employed by home hobbyists to catalog extensive book or game collections, and track home package arrivals.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <span class="app-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 22Z"></path><path d="M12 8V16"></path><path d="M8 12H16"></path></svg>
+                  </span>
+                  <h4>Graphic Design Use</h4>
+                </div>
+                <p>Used to verify and test printed barcode placements on consumer product packaging designs before manufacturing.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pros and Cons -->
+          <div class="detail-section" id="advantages-section">
+            <h3 class="section-title">Advantages and Disadvantages</h3>
+            <p class="section-subtitle">Key trade-offs to evaluate when considering Barcode Reader systems:</p>
+            <div class="pros-cons-grid">
+              <div class="pros-card">
+                <div class="card-pros-header">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pros-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  <h4>Advantages</h4>
+                </div>
+                <ul>
+                  <li>Incredibly fast and accurate data logging without manual typing errors.</li>
+                  <li>Facilitates instant inventory tracking and retail transaction speed.</li>
+                  <li>Extremely rugged, shock-resistant builds suited for physical workspaces.</li>
+                </ul>
+              </div>
+
+              <div class="cons-card">
+                <div class="card-cons-header">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="cons-icon"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                  <h4>Disadvantages</h4>
+                </div>
+                <ul>
+                  <li>Requires direct line of sight to scan the code label.</li>
+                  <li>Damaged, dirty, or crinkled labels will fail to read.</li>
+                  <li>Cannot retrieve data if barcode formatting standards are corrupt.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Practice Quiz Section -->
+          <div class="detail-section" id="quiz-section">
+            <h3 class="section-title">Practice Quiz</h3>
+            <p class="section-subtitle">Test your knowledge about this device:</p>
+            <div id="quiz-container" data-device="barcode-reader">
+              <!-- Dynamically populated by JS -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-wrapper">
+    <div class="footer-container container">
+      <div class="footer-text">
+        &copy; 2026 <strong>Peripedia Project Group</strong>. All rights reserved.
+      </div>
+      <div class="footer-academic-badge">
+        CSE Peripheral Systems Course Portfolio
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Scroll back to top of page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+
+  <!-- Floating Chatbot Launcher -->
+  <div class="floating-chat-wrapper">
+    <button id="chat-trigger-btn" class="chat-trigger-btn" aria-label="Open AI Assistant Chat">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+    <div id="chat-panel-container" class="chat-panel-container">
+      <div class="chat-panel-header">
+        <div class="chat-panel-title-group">
+          <h4>Peripheral AI Assistant</h4>
+          <span>Active Learning Helper</span>
+        </div>
+        <div class="chat-panel-actions">
+          <button onclick="clearFloatingChat()" title="Clear Chat History">🗑</button>
+          <button onclick="closeFloatingChat()" title="Close Panel">✕</button>
+        </div>
+      </div>
+      <div id="chat-messages-viewport" class="chat-messages-viewport">
+        <!-- Loaded dynamically -->
+      </div>
+      <div class="chat-panel-input-area">
+        <input type="text" id="chat-panel-input" class="chat-panel-input" placeholder="Ask about devices (e.g. DPI)..." onkeydown="if(event.key === 'Enter') sendFloatingChatMessage()">
+        <button id="chat-panel-send-btn" class="chat-panel-send-btn" onclick="sendFloatingChatMessage()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key Config Modal Overlay -->
+  <div id="api-modal-overlay" class="api-modal-overlay">
+    <div class="api-modal-box">
+      <div class="api-modal-header">
+        <span class="api-modal-title">Configure Gemini API</span>
+        <button class="api-modal-close" onclick="closeApiKeyModal()">&times;</button>
+      </div>
+      <div class="api-modal-body">
+        <p>
+          Enter your Gemini API key below. This enables the **AI Chatbot** and **AI Quiz Generator** to run real queries.
+        </p>
+        <p style="font-size:12px; color:var(--text-secondary);">
+          Your key is saved locally in your browser storage and never uploaded anywhere. You can get a free key from Google AI Studio.
+        </p>
+        <input type="password" id="gemini-api-key-input" class="api-input-field" placeholder="Paste your API Key here...">
+        <button class="api-save-btn" onclick="saveApiKey()">Save API Settings</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

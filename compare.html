@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Tool - Peripedia</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="header-wrapper">
+    <div class="header-container container">
+      <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">P</div>
+        <span class="logo-text">Peri<span class="logo-dot">pedia</span></span>
+      </a>
+
+      <!-- Search component -->
+      <div class="search-wrapper">
+        <div class="search-input-container">
+          <span class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
+          <input type="text" id="global-search-input" class="search-input" placeholder="Search devices or specs..." autocomplete="off">
+        </div>
+        <div id="search-results-dropdown" class="search-results-dropdown hidden"></div>
+      </div>
+
+      <nav class="nav-links-wrapper">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html?filter=input" class="nav-link" id="nav-input">Input</a>
+        <a href="index.html?filter=output" class="nav-link" id="nav-output">Output</a>
+        <a href="compare.html" class="nav-link">Compare Tool</a>
+        <a href="quiz.html" class="nav-link">Quiz Center</a>
+        <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
+        <a href="about.html" class="nav-link">About / Feedback</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle visual theme mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <main class="main-viewport">
+    <div class="compare-container container">
+      <h1 class="page-title text-center">Interactive Comparison Engine</h1>
+      <p class="page-subtitle text-center">Select and analyze technical characteristics of standard peripherals or specialized subtypes side-by-side.</p>
+      
+      <!-- Comparison Mode Tabs -->
+      <div class="comparison-tabs">
+        <button class="compare-tab-btn active" id="tab-generic" onclick="toggleComparisonMode('generic')">Compare Standard Devices</button>
+        <button class="compare-tab-btn" id="tab-subtypes" onclick="toggleComparisonMode('subtypes')">Compare Technology Subtypes</button>
+      </div>
+
+      <!-- Generic Device Compare Panel -->
+      <div id="compare-panel-generic" class="compare-panel-wrapper">
+        <div class="selector-row">
+          <div class="selector-box">
+            <label for="device1-select">Select First Device</label>
+            <select id="device1-select" class="form-control" onchange="runGenericComparison()">
+              <option value="">-- Choose Device A --</option>
+              <option value="keyboard">Keyboard</option>
+              <option value="mouse">Mouse</option>
+              <option value="printer">Printer</option>
+              <option value="scanner">Scanner</option>
+              <option value="monitor">Monitor</option>
+              <option value="webcam">Webcam</option>
+              <option value="speaker">Speaker</option>
+              <option value="microphone">Microphone</option>
+              <option value="headphone">Headphone</option>
+              <option value="projector">Projector</option>
+              <option value="barcode-reader">Barcode Reader</option>
+              <option value="joystick">Joystick</option>
+            </select>
+          </div>
+          <div class="vs-badge">VS</div>
+          <div class="selector-box">
+            <label for="device2-select">Select Second Device</label>
+            <select id="device2-select" class="form-control" onchange="runGenericComparison()">
+              <option value="">-- Choose Device B --</option>
+              <option value="keyboard">Keyboard</option>
+              <option value="mouse">Mouse</option>
+              <option value="printer">Printer</option>
+              <option value="scanner">Scanner</option>
+              <option value="monitor">Monitor</option>
+              <option value="webcam">Webcam</option>
+              <option value="speaker">Speaker</option>
+              <option value="microphone">Microphone</option>
+              <option value="headphone">Headphone</option>
+              <option value="projector">Projector</option>
+              <option value="barcode-reader">Barcode Reader</option>
+              <option value="joystick">Joystick</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="generic-comparison-table-wrapper" class="table-card-wrapper mt-4">
+          <div class="text-center py-5 text-muted">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mb-2"><path d="M16 3H1v18h22V7h-7V3z"></path><path d="M16 3v4h4"></path></svg>
+            <p>Please select two devices from the dropdown lists above to generate a side-by-side comparison table.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subtypes Compare Panel -->
+      <div id="compare-panel-subtypes" class="compare-panel-wrapper hidden">
+        <div class="selector-row">
+          <div class="selector-box" style="max-width: 500px;">
+            <label for="subtype-category-select">Select Device Category</label>
+            <select id="subtype-category-select" class="form-control" onchange="onSubtypeCategoryChange()">
+              <option value="">-- Choose Category --</option>
+              <option value="keyboard">Keyboard (Mechanical vs Membrane vs Ergonomic)</option>
+              <option value="mouse">Mouse (Optical vs Laser vs Wireless)</option>
+              <option value="printer">Printer (Inkjet vs Laser vs Dot Matrix)</option>
+              <option value="scanner">Scanner (Flatbed vs Sheet-fed vs Handheld)</option>
+              <option value="monitor">Monitor (IPS vs Curved VA vs OLED)</option>
+              <option value="webcam">Webcam (Integrated vs External vs 4K Conference)</option>
+              <option value="speaker">Speaker (Stereo 2.0 vs Surround 5.1 vs Soundbar)</option>
+              <option value="microphone">Microphone (USB Condenser vs Dynamic vs Lavaliere)</option>
+              <option value="headphone">Headphone (Over-Ear vs On-Ear vs In-Ear)</option>
+              <option value="projector">Projector (DLP vs LCD vs Laser)</option>
+              <option value="barcode-reader">Barcode Reader (Handheld Laser vs Omnidirectional vs 2D Imager)</option>
+              <option value="joystick">Joystick (Flight Simulation vs Arcade vs Industrial)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="subtype-comparison-table-wrapper" class="table-card-wrapper mt-4">
+          <div class="text-center py-5 text-muted">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mb-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            <p>Please choose a category from the dropdown to compare its core technological subtypes (e.g., Inkjet vs Laser printers).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-wrapper">
+    <div class="footer-container container">
+      <div class="footer-text">
+        &copy; 2026 <strong>Peripedia Project Group</strong>. All rights reserved.
+      </div>
+      <div class="footer-academic-badge">
+        CSE Peripheral Systems Course Portfolio
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Scroll back to top of page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+
+  <!-- Floating Chatbot Launcher -->
+  <div class="floating-chat-wrapper">
+    <button id="chat-trigger-btn" class="chat-trigger-btn" aria-label="Open AI Assistant Chat">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+    <div id="chat-panel-container" class="chat-panel-container">
+      <div class="chat-panel-header">
+        <div class="chat-panel-title-group">
+          <h4>Peripheral AI Assistant</h4>
+          <span>Active Learning Helper</span>
+        </div>
+        <div class="chat-panel-actions">
+          <button onclick="clearFloatingChat()" title="Clear Chat History">🗑</button>
+          <button onclick="closeFloatingChat()" title="Close Panel">✕</button>
+        </div>
+      </div>
+      <div id="chat-messages-viewport" class="chat-messages-viewport">
+        <!-- Loaded dynamically -->
+      </div>
+      <div class="chat-panel-input-area">
+        <input type="text" id="chat-panel-input" class="chat-panel-input" placeholder="Ask about devices (e.g. DPI)..." onkeydown="if(event.key === 'Enter') sendFloatingChatMessage()">
+        <button id="chat-panel-send-btn" class="chat-panel-send-btn" onclick="sendFloatingChatMessage()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key Config Modal Overlay -->
+  <div id="api-modal-overlay" class="api-modal-overlay">
+    <div class="api-modal-box">
+      <div class="api-modal-header">
+        <span class="api-modal-title">Configure Gemini API</span>
+        <button class="api-modal-close" onclick="closeApiKeyModal()">&times;</button>
+      </div>
+      <div class="api-modal-body">
+        <p>
+          Enter your Gemini API key below. This enables the **AI Chatbot** and **AI Quiz Generator** to run real queries.
+        </p>
+        <p style="font-size:12px; color:var(--text-secondary);">
+          Your key is saved locally in your browser storage and never uploaded anywhere. You can get a free key from Google AI Studio.
+        </p>
+        <input type="password" id="gemini-api-key-input" class="api-input-field" placeholder="Paste your API Key here...">
+        <button class="api-save-btn" onclick="saveApiKey()">Save API Settings</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
