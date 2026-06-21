@@ -35,10 +35,13 @@
         <a href="compare.html" class="nav-link">Compare Tool</a>
         <a href="quiz.html" class="nav-link">Quiz Center</a>
         <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
-        <a href="about.html" class="nav-link">About / Feedback</a>
       </nav>
 
       <div style="display: flex; align-items: center; gap: 12px;">
+        <button onclick="openApiKeyModal()" class="api-config-btn" title="Configure Gemini API Key" aria-label="Configure API Key">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>API Key</span>
+        </button>
         <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle visual theme mode">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
@@ -69,13 +72,14 @@
               <span class="category-badge input">Input Device</span>
             </div>
             <ul class="sidebar-links-list">
-              <li><a href="#overview" class="subnav-link active" onclick="scrollToDetailSection('overview-section', this)">Device Overview</a></li>
+              <li><a href="#intro" class="subnav-link active" onclick="scrollToDetailSection('intro-section', this)">Introduction</a></li>
+              <li><a href="#history" class="subnav-link" onclick="scrollToDetailSection('history-section', this)">Historical Background</a></li>
               <li><a href="#working" class="subnav-link" onclick="scrollToDetailSection('working-section', this)">Working Principle</a></li>
-              <li><a href="#specs" class="subnav-link" onclick="scrollToDetailSection('specs-section', this)">Specifications</a></li>
-              <li><a href="#subtypes" class="subnav-link" onclick="scrollToDetailSection('subtypes-section', this)">Device Subtypes</a></li>
+              <li><a href="#types" class="subnav-link" onclick="scrollToDetailSection('types-section', this)">Types of Mouse</a></li>
+              <li><a href="#specs" class="subnav-link" onclick="scrollToDetailSection('specs-section', this)">Performance Specs</a></li>
+              <li><a href="#tech" class="subnav-link" onclick="scrollToDetailSection('tech-section', this)">Advanced Tech</a></li>
               <li><a href="#guide" class="subnav-link" onclick="scrollToDetailSection('guide-section', this)">Buying Guide</a></li>
-              <li><a href="#apps" class="subnav-link" onclick="scrollToDetailSection('apps-section', this)">Real-Life Applications</a></li>
-              <li><a href="#advantages" class="subnav-link" onclick="scrollToDetailSection('advantages-section', this)">Pros & Cons</a></li>
+              <li><a href="#proscons" class="subnav-link" onclick="scrollToDetailSection('proscons-section', this)">Pros & Cons</a></li>
               <li><a href="#quiz" class="subnav-link" onclick="scrollToDetailSection('quiz-section', this)">Practice Quiz</a></li>
             </ul>
             <a href="compare.html" class="sidebar-compare-cta-btn">Compare with another device &rarr;</a>
@@ -84,111 +88,252 @@
 
         <!-- Main Content Column -->
         <main class="detail-main-panel">
-          <!-- Overview -->
-          <div class="detail-section" id="overview-section">
-            <h1 class="detail-main-title">Mouse</h1>
+          <!-- 2.1 Introduction -->
+          <div class="detail-section" id="intro-section">
+            <h1 class="detail-main-title">Computer Mouse</h1>
             <div class="detail-hero-wrapper">
               <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&q=80&w=800" alt="Mouse" class="detail-hero-img">
             </div>
-            <h3 class="section-title">What is a Mouse?</h3>
+            <h3 class="section-title">Introduction</h3>
             <p class="section-desc-text">
-              A computer mouse is a hand-held pointing device that detects two-dimensional motion relative to a flat surface. This motion is typically translated into the movement of a pointer on a display, allowing smooth control of the graphical user interface (GUI). Users can select, drag, click, and manipulate objects on the screen. The mouse revolutionized personal computing by making it accessible to non-technical users who previously relied on text command-line interfaces. Standard mice include a left and right button, and a central scroll wheel. Specialized designs exist for gaming, ergonomics, and portability. They use optical or laser sensors to track movement over surfaces.
+              A computer mouse is a hand-operated pointing device used to control the graphical user interface of a computer. It allows users to move a cursor, select objects, execute commands, and navigate digital environments efficiently.
+            </p>
+            <p class="section-desc-text">
+              The mouse revolutionized human-computer interaction by making computers easier to use for non-technical users.
             </p>
           </div>
 
-          <!-- Working Principle -->
-          <div class="detail-section" id="working-section">
-            <h3 class="section-title">Working Principle</h3>
-            <p class="section-desc-text">
-              An optical mouse works by emitting light from an LED or laser diode onto the surface below the mouse. A miniature optical sensor (essentially a low-resolution camera) captures thousands of successive images of the surface per second. As the mouse moves, the sensor transmits these frames to an internal Digital Signal Processor (DSP). The DSP analyzes the differences between consecutive frames to calculate the direction and distance of the movement. This relative coordinate change is sent to the computer via USB or wireless signals, which the operating system translates to move the cursor.
-            </p>
-          </div>
-
-          <!-- Specifications Table -->
-          <div class="detail-section" id="specs-section">
-            <h3 class="section-title">Technical Specifications</h3>
-            <p class="section-subtitle">Standard specifications and metrics configuration for typical Mouse units:</p>
-            <div class="table-responsive">
-              <table class="specs-table">
-                <thead>
-                  <tr>
-                    <th>Specification Parameter</th>
-                    <th>Standard Value Range</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="spec-label">DPI</td>
-                    <td class="spec-val">800 - 16,000 DPI (Adjustable DPI levels)</td>
-                  </tr>
-                  <tr>
-                    <td class="spec-label">Polling Rate</td>
-                    <td class="spec-val">125 Hz - 1000 Hz (USB response frequency)</td>
-                  </tr>
-                  <tr>
-                    <td class="spec-label">Connectivity</td>
-                    <td class="spec-val">Wired USB / 2.4GHz Wireless USB Dongle / Bluetooth 5.0</td>
-                  </tr>
-                  <tr>
-                    <td class="spec-label">Sensor Type</td>
-                    <td class="spec-val">Optical (LED red/blue light) / Laser (Infrared diode)</td>
-                  </tr>
-                </tbody>
-              </table>
+          <!-- 2.2 Historical Background -->
+          <div class="detail-section" id="history-section">
+            <h3 class="section-title">Historical Background</h3>
+            <div class="buying-guide-card">
+              <h4 style="margin-top:0; color:var(--accent);">Key Milestones:</h4>
+              <ul style="padding-left: 20px; margin: 10px 0;">
+                <li style="margin-bottom:8px;">
+                  The computer mouse was invented by <strong>Douglas Engelbart</strong> in <strong>1968</strong> at the Stanford Research Institute.
+                </li>
+                <li style="margin-bottom:8px;">
+                  The first mouse was made of wood, had two metal wheels, and included a cable resembling a tail.
+                </li>
+                <li style="margin-bottom:8px;">
+                  The mouse gained widespread popularity after the release of the <strong>Apple Macintosh in 1984</strong>, where it became a standard input device.
+                </li>
+              </ul>
             </div>
           </div>
 
-          <!-- Mouse Subtypes -->
-          <div class="detail-section" id="subtypes-section">
-            <h3 class="section-title">Different Types of Mouse</h3>
-            <p class="section-subtitle">Below is a breakdown of the primary technological configurations and subcategories of mice available today:</p>
+          <!-- 2.3 Working Principle of a Mouse -->
+          <div class="detail-section" id="working-section">
+            <h3 class="section-title">Working Principle of a Mouse</h3>
+            <p class="section-desc-text">
+              The mouse detects movement along two axes:
+            </p>
+            <ul style="padding-left: 20px; margin: 10px 0; line-height: 1.6; color: var(--text-secondary);">
+              <li><strong>X-axis:</strong> horizontal movement</li>
+              <li><strong>Y-axis:</strong> vertical movement</li>
+            </ul>
+            <p class="section-desc-text">
+              The movement data is converted into cursor movement on the screen.
+            </p>
+          </div>
+
+          <!-- 2.4 Types of Mouse -->
+          <div class="detail-section" id="types-section">
+            <h3 class="section-title">Types of Mouse</h3>
+            <p class="section-subtitle">Mice utilize different structural and sensory mechanisms to track movement:</p>
+            
             <div class="subtypes-grid">
-              <!-- Optical Mouse -->
+              <!-- A. Mechanical Mouse -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&q=80&w=400" alt="Mechanical Mouse" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>A. Mechanical Mouse</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <strong>Construction:</strong>
+                  <ul style="padding-left:18px; margin: 6px 0;">
+                    <li>Rubber-coated ball</li>
+                    <li>X-axis roller</li>
+                    <li>Y-axis roller</li>
+                    <li>Optical encoding disks</li>
+                    <li>Infrared LED sensors</li>
+                  </ul>
+                  <strong>Working:</strong>
+                  <ol style="padding-left:18px; margin: 6px 0;">
+                    <li>The ball rolls when the mouse moves.</li>
+                    <li>The ball rotates two rollers.</li>
+                    <li>Rollers spin encoding disks.</li>
+                    <li>Infrared light passes through holes in the disks.</li>
+                    <li>Sensors detect interruptions.</li>
+                    <li>Electronic circuits calculate direction and speed.</li>
+                  </ol>
+                  <div style="margin-top:10px; display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+                    <div>
+                      <strong style="color:#10b981;">Advantages:</strong>
+                      <ul style="padding-left:12px; margin:4px 0; font-size:12px;">
+                        <li>Low power consumption.</li>
+                        <li>Inexpensive.</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <strong style="color:#ef4444;">Disadvantages:</strong>
+                      <ul style="padding-left:12px; margin:4px 0; font-size:12px;">
+                        <li>Requires frequent cleaning.</li>
+                        <li>Mechanical wear occurs.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- B. Optical Mouse -->
               <div class="subtype-detail-card">
                 <div class="subtype-card-img-wrapper">
                   <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&q=80&w=400" alt="Optical Mouse" loading="lazy">
                 </div>
                 <div class="subtype-header">
-                  <h4>Optical Mouse</h4>
+                  <h4>B. Optical Mouse</h4>
                 </div>
-                <div class="subtype-specs">
-                  <div class="sub-spec-row"><span class="sub-spec-label">Accuracy:</span><span class="sub-spec-value">High (Optimal on cloth/textured surfaces)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">DPI:</span><span class="sub-spec-value">400 - 12,000 DPI</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Cost:</span><span class="sub-spec-value">Low to Moderate ($15 - $50)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Best Use:</span><span class="sub-spec-value">General office usage, competitive gaming on fabric mousepads.</span></div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top:0;">Optical mice use light and image processing technology.</p>
+                  <strong>Working:</strong>
+                  <ol style="padding-left:18px; margin: 6px 0;">
+                    <li>LED illuminates the surface.</li>
+                    <li>Tiny camera captures thousands of images every second.</li>
+                    <li>Digital Signal Processor (DSP) compares images.</li>
+                    <li>Motion direction and distance are calculated.</li>
+                    <li>Cursor movement is generated.</li>
+                  </ol>
+                  <div style="margin-top:10px; display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+                    <div>
+                      <strong style="color:#10b981;">Advantages:</strong>
+                      <ul style="padding-left:12px; margin:4px 0; font-size:12px;">
+                        <li>No moving parts.</li>
+                        <li>Low maintenance.</li>
+                        <li>High reliability.</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <strong style="color:#ef4444;">Disadvantages:</strong>
+                      <ul style="padding-left:12px; margin:4px 0; font-size:12px;">
+                        <li>Poor performance on reflective surfaces.</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Laser Mouse -->
+              <!-- C. Laser Mouse -->
               <div class="subtype-detail-card">
                 <div class="subtype-card-img-wrapper">
-                  <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&q=80&w=400" alt="Laser Mouse" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1625805708148-983c2307fe5c?auto=format&fit=crop&q=80&w=400" alt="Laser Mouse" loading="lazy">
                 </div>
                 <div class="subtype-header">
-                  <h4>Laser Mouse</h4>
+                  <h4>C. Laser Mouse</h4>
                 </div>
-                <div class="subtype-specs">
-                  <div class="sub-spec-row"><span class="sub-spec-label">Accuracy:</span><span class="sub-spec-value">Very High (Can track on glass and glossy surfaces)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">DPI:</span><span class="sub-spec-value">2,000 - 25,000+ DPI</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Cost:</span><span class="sub-spec-value">High ($60 - $120)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Best Use:</span><span class="sub-spec-value">High-precision drafting, travelers working on diverse glass surfaces.</span></div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top:0;">Laser mice are an advanced form of optical mouse.</p>
+                  <strong>Working:</strong>
+                  <p style="margin: 6px 0;">
+                    Instead of an LED, an infrared laser illuminates the surface. The laser detects microscopic surface details and movement through Doppler-shift-based analysis.
+                  </p>
+                  <div style="margin-top:10px;">
+                    <strong style="color:#10b981;">Advantages:</strong>
+                    <ul style="padding-left:18px; margin:4px 0;">
+                      <li>Higher sensitivity.</li>
+                      <li>Greater precision.</li>
+                      <li>Works on more surface types.</li>
+                    </ul>
+                  </div>
+                  <div style="margin-top:10px;">
+                    <strong>Applications:</strong>
+                    <ul style="padding-left:18px; margin:4px 0;">
+                      <li>Professional design work.</li>
+                      <li>Competitive gaming.</li>
+                      <li>Engineering applications.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <!-- Wireless Mouse -->
-              <div class="subtype-detail-card">
-                <div class="subtype-card-img-wrapper">
-                  <img src="https://images.unsplash.com/photo-1625805708148-983c2307fe5c?auto=format&fit=crop&q=80&w=400" alt="Wireless Mouse" loading="lazy">
+          <!-- 2.5 Mouse Performance Specifications -->
+          <div class="detail-section" id="specs-section">
+            <h3 class="section-title"> Mouse Performance Specifications</h3>
+            
+            <h4 style="color:var(--accent); margin-bottom:8px;">DPI (Dots Per Inch)</h4>
+            <p class="section-subtitle" style="margin-top:0;">Measures sensitivity.</p>
+            
+            <div class="table-responsive" style="margin-bottom: 24px;">
+              <table class="specs-table">
+                <thead>
+                  <tr>
+                    <th>DPI Range</th>
+                    <th>Usage Classification</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="spec-label">400–800</td>
+                    <td class="spec-val">General use</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">800–1600</td>
+                    <td class="spec-val">Office and design</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">1600–3200</td>
+                    <td class="spec-val">Gaming</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">3200+</td>
+                    <td class="spec-val">Professional gaming</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 style="color:var(--accent); margin-bottom:8px;">Refresh Rate</h4>
+            <p class="section-desc-text" style="margin-top:0;">
+              The number of times the mouse reports its position per second.
+            </p>
+            <div class="buying-guide-card" style="border-left-color: var(--accent);">
+              <strong>Typical values:</strong>
+              <ul style="padding-left: 20px; margin: 10px 0;">
+                <li>1500 samples/sec</li>
+                <li>3000 samples/sec</li>
+                <li>6000 samples/sec</li>
+              </ul>
+              <p style="margin-bottom:0; font-size:14px; color:var(--text-secondary);">
+                Higher refresh rates provide smoother cursor movement.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2.6 Advanced Mouse Technologies -->
+          <div class="detail-section" id="tech-section">
+            <h3 class="section-title"> Advanced Mouse Technologies</h3>
+            <div class="apps-grid">
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <h4>Biometric Mouse</h4>
                 </div>
-                <div class="subtype-header">
-                  <h4>Wireless Mouse</h4>
+                <p>Includes fingerprint authentication for secure access.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <h4>Air Mouse</h4>
                 </div>
-                <div class="subtype-specs">
-                  <div class="sub-spec-row"><span class="sub-spec-label">Accuracy:</span><span class="sub-spec-value">High (Modern 2.4GHz links match wired speeds)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">DPI:</span><span class="sub-spec-value">800 - 16,000 DPI</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Cost:</span><span class="sub-spec-value">Moderate to High ($30 - $150)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Best Use:</span><span class="sub-spec-value">Clean, wire-free desk layouts, remote presentations, and mobility.</span></div>
+                <p>Uses gyroscopes and accelerometers to detect motion in three-dimensional space.</p>
+              </div>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <h4>Tilting Scroll Wheel</h4>
                 </div>
+                <p>Allows vertical scrolling, horizontal scrolling, and faster navigation.</p>
               </div>
             </div>
           </div>
@@ -225,82 +370,20 @@
             </div>
           </div>
 
-          <!-- Real-Life Applications -->
-          <div class="detail-section" id="apps-section">
-            <h3 class="section-title">Real-Life Applications</h3>
-            <p class="section-subtitle">How the Mouse is utilized across primary organizational sectors:</p>
-            <div class="apps-grid">
-              <div class="app-item-card">
-                <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
-                  </span>
-                  <h4>Education Use</h4>
-                </div>
-                <p>Aids younger learners in navigating interactive educational software and online portals intuitively.</p>
-              </div>
-              <div class="app-item-card">
-                <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                  </span>
-                  <h4>Business Use</h4>
-                </div>
-                <p>Used for general file management, database selection, spreadsheet navigation, and presentation design.</p>
-              </div>
-              <div class="app-item-card">
-                <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                  </span>
-                  <h4>Healthcare Use</h4>
-                </div>
-                <p>Enables clinicians to navigate diagnostic software interfaces, review imaging files, and click fields in EHR systems.</p>
-              </div>
-              <div class="app-item-card">
-                <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
-                  </span>
-                  <h4>Banking Use</h4>
-                </div>
-                <p>Enables cashiers to rapidly navigate banking interfaces, switch between ledger tabs, and select transaction forms.</p>
-              </div>
-              <div class="app-item-card">
-                <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                  </span>
-                  <h4>Home Use</h4>
-                </div>
-                <p>Used for general operating system control, media player navigation, casual browsing, and gaming.</p>
-              </div>
-              <div class="app-item-card">
-                <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 22Z"></path><path d="M12 8V16"></path><path d="M8 12H16"></path></svg>
-                  </span>
-                  <h4>Graphic Design Use</h4>
-                </div>
-                <p>Invaluable for drawing curves, positioning vectors, dragging timelines in video editors, and precision painting.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pros and Cons -->
-          <div class="detail-section" id="advantages-section">
-            <h3 class="section-title">Advantages and Disadvantages</h3>
-            <p class="section-subtitle">Key trade-offs to evaluate when considering Mouse systems:</p>
+          <!-- 2.7 Advantages and Disadvantages -->
+          <div class="detail-section" id="proscons-section">
+            <h3 class="section-title"> Advantages and Disadvantages</h3>
             <div class="pros-cons-grid">
               <div class="pros-card">
                 <div class="card-pros-header">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pros-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                   <h4>Advantages</h4>
                 </div>
-                <ul>
-                  <li>Incredibly intuitive way to interact with graphical user interfaces.</li>
-                  <li>High precision spatial tracking for tasks like graphic design and gaming.</li>
-                  <li>Scroll wheels make navigating large pages, spreadsheets, and files effortless.</li>
+                <ul style="padding-left: 20px; margin: 10px 0;">
+                  <li style="margin-bottom:8px;">Easy navigation.</li>
+                  <li style="margin-bottom:8px;">Fast object selection.</li>
+                  <li style="margin-bottom:8px;">User-friendly.</li>
+                  <li style="margin-bottom:8px;">Supports graphical interfaces.</li>
                 </ul>
               </div>
 
@@ -309,10 +392,10 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="cons-icon"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                   <h4>Disadvantages</h4>
                 </div>
-                <ul>
-                  <li>Requires flat, clear desk space, and often a mousepad to track optimally.</li>
-                  <li>Prolonged usage without ergonomic support can lead to wrist pain and tendinitis.</li>
-                  <li>Virtually useless for text entry or keyboard-driven console/shell applications.</li>
+                <ul style="padding-left: 20px; margin: 10px 0;">
+                  <li style="margin-bottom:8px;">Requires surface space.</li>
+                  <li style="margin-bottom:8px;">Can cause repetitive strain injuries.</li>
+                  <li style="margin-bottom:8px;">Some models perform poorly on certain surfaces.</li>
                 </ul>
               </div>
             </div>

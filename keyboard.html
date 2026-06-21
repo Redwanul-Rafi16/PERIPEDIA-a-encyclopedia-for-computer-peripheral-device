@@ -35,7 +35,6 @@
         <a href="compare.html" class="nav-link">Compare Tool</a>
         <a href="quiz.html" class="nav-link">Quiz Center</a>
         <a href="ai-assistant.html" class="nav-link">AI Assistant</a>
-        <a href="about.html" class="nav-link">About / Feedback</a>
       </nav>
 
       <div style="display: flex; align-items: center; gap: 12px;">
@@ -73,13 +72,13 @@
               <span class="category-badge input">Input Device</span>
             </div>
             <ul class="sidebar-links-list">
-              <li><a href="#overview" class="subnav-link active" onclick="scrollToDetailSection('overview-section', this)">Device Overview</a></li>
+              <li><a href="#intro" class="subnav-link active" onclick="scrollToDetailSection('intro-section', this)">Introduction</a></li>
+              <li><a href="#history" class="subnav-link" onclick="scrollToDetailSection('history-section', this)">History</a></li>
               <li><a href="#working" class="subnav-link" onclick="scrollToDetailSection('working-section', this)">Working Principle</a></li>
-              <li><a href="#specs" class="subnav-link" onclick="scrollToDetailSection('specs-section', this)">Specifications</a></li>
-              <li><a href="#subtypes" class="subnav-link" onclick="scrollToDetailSection('subtypes-section', this)">Device Subtypes</a></li>
+              <li><a href="#types" class="subnav-link" onclick="scrollToDetailSection('types-section', this)">Types of Keyboards</a></li>
+              <li><a href="#connectivity" class="subnav-link" onclick="scrollToDetailSection('connectivity-section', this)">Connectivity</a></li>
               <li><a href="#guide" class="subnav-link" onclick="scrollToDetailSection('guide-section', this)">Buying Guide</a></li>
-              <li><a href="#apps" class="subnav-link" onclick="scrollToDetailSection('apps-section', this)">Real-Life Applications</a></li>
-              <li><a href="#advantages" class="subnav-link" onclick="scrollToDetailSection('advantages-section', this)">Pros & Cons</a></li>
+              <li><a href="#apps" class="subnav-link" onclick="scrollToDetailSection('apps-section', this)">Applications</a></li>
               <li><a href="#quiz" class="subnav-link" onclick="scrollToDetailSection('quiz-section', this)">Practice Quiz</a></li>
             </ul>
             <a href="compare.html" class="sidebar-compare-cta-btn">Compare with another device &rarr;</a>
@@ -88,112 +87,300 @@
 
         <!-- Main Content Column -->
         <main class="detail-main-panel">
-          <!-- Overview -->
-          <div class="detail-section" id="overview-section">
-            <h1 class="detail-main-title">Keyboard</h1>
+          <!-- 1.1 Introduction -->
+          <div class="detail-section" id="intro-section">
+            <h1 class="detail-main-title">Computer Keyboard</h1>
             <div class="detail-hero-wrapper">
               <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=800" alt="Keyboard" class="detail-hero-img">
             </div>
-            <h3 class="section-title">What is a Keyboard?</h3>
+            <h3 class="section-title">1.1 Introduction</h3>
             <p class="section-desc-text">
-              A computer keyboard is one of the primary input devices used with a computer. Similar to an electronic typewriter, a keyboard is composed of buttons that create letters, numbers, and symbols, and perform additional functions. It acts as the primary interface for typing text, executing shortcuts, and navigating operating systems. Keyboards are essential in standard computing environments, programming, office automation, and gaming. Modern keyboards come in various sizes, form factors, and layouts (like QWERTY, DVORAK, and AZERTY), and connect either via wired cables (USB) or wireless technologies (Bluetooth, RF). Specialized versions also exist, such as mechanical keyboards featuring individual physical switches under each key, membrane keyboards utilizing a rubber dome mechanism, and ergonomic keyboards designed to reduce hand strain.
+              A computer keyboard is one of the most important input devices used to enter data and commands into a computer system. It is designed primarily for typing text, numbers, symbols, and special commands. The keyboard serves as the main communication bridge between the user and the computer.
+            </p>
+            <p class="section-desc-text">
+              Modern keyboards are derived from traditional typewriters. Although technology has changed significantly, the basic arrangement of keys remains largely unchanged. Most keyboards use the <strong>QWERTY layout</strong>, named after the first six letters of the top alphabetic row. This layout was originally developed to reduce mechanical key jamming in typewriters and later became the worldwide standard.
+            </p>
+            <p class="section-desc-text">
+              Today, keyboards are used not only with desktop computers but also with laptops, tablets, smartphones, gaming consoles, and industrial control systems.
             </p>
           </div>
 
-          <!-- Working Principle -->
-          <div class="detail-section" id="working-section">
-            <h3 class="section-title">Working Principle</h3>
+          <!-- 1.2 Historical Development -->
+          <div class="detail-section" id="history-section">
+            <h3 class="section-title">1.2 Historical Development of the Keyboard</h3>
             <p class="section-desc-text">
-              A keyboard operates using an internal key matrix, which is a grid of circuits beneath the keys. When a key is pressed, it completes an electrical connection at a specific intersection of a row and a column. The keyboard controller (a microchip) continuously scans this matrix to detect state changes. When it finds a closed circuit, it filters out temporary noise using a debouncing algorithm. It then identifies the key's scan code, converts it into a digital character code (such as ASCII or Unicode), and sends it to the computer. The operating system's device driver interprets this code and displays the symbol or executes the command.
+              The history of the keyboard dates back to the invention of the typewriter during the nineteenth century. Early computer systems used punched cards and paper tape for data entry. As computing technology evolved, engineers adopted keyboard-like devices for direct interaction with computers.
             </p>
-          </div>
-
-          <!-- Specifications Table -->
-          <div class="detail-section" id="specs-section">
-            <h3 class="section-title">Technical Specifications</h3>
-            <p class="section-subtitle">Standard specifications and metrics configuration for typical Keyboard units:</p>
-            <div class="table-responsive">
-              <table class="specs-table">
-                <thead>
-                  <tr>
-                    <th>Specification Parameter</th>
-                    <th>Standard Value Range</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="spec-label">Connection Type</td>
-                    <td class="spec-val">Wired USB-C / Wireless Bluetooth 5.1 & 2.4GHz RF</td>
-                  </tr>
-                  <tr>
-                    <td class="spec-label">Number of Keys</td>
-                    <td class="spec-val">104 Standard Keys (Full Size) / 84 Keys (Tenkeyless)</td>
-                  </tr>
-                  <tr>
-                    <td class="spec-label">Switch Type</td>
-                    <td class="spec-val">Mechanical (Cherry MX Blue/Red/Brown) / Membrane (Rubber Dome)</td>
-                  </tr>
-                  <tr>
-                    <td class="spec-label">Layout</td>
-                    <td class="spec-val">QWERTY / AZERTY / QWERTZ / Dvorak / Colemak</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="buying-guide-card">
+              <h4 style="margin-top:0; color:var(--accent);">Major Milestones:</h4>
+              <ul style="padding-left: 20px; margin: 10px 0;">
+                <li style="margin-bottom:8px;"><strong>1868:</strong> Christopher Latham Sholes invented the QWERTY typewriter layout.</li>
+                <li style="margin-bottom:8px;"><strong>1940s–1950s:</strong> Early computers used punched cards instead of keyboards.</li>
+                <li style="margin-bottom:8px;"><strong>1960:</strong> Electronic keyboards began replacing mechanical systems.</li>
+                <li style="margin-bottom:8px;"><strong>1981:</strong> IBM introduced the Model F keyboard.</li>
+                <li style="margin-bottom:8px;"><strong>1984:</strong> The IBM Model M became one of the most influential keyboard designs.</li>
+              </ul>
+              <p style="margin-bottom:0; font-size:14px; color:var(--text-secondary);">
+                Today, wireless, ergonomic, virtual, and laser keyboards are widely available. The design and layout of modern keyboards are standardized by <strong>ISO/IEC 9995</strong>, ensuring consistency across manufacturers.
+              </p>
             </div>
           </div>
 
-          <!-- Key Technologies (Subtypes) -->
-          <div class="detail-section" id="subtypes-section">
-            <h3 class="section-title">Key Technologies: Subtype Configurations</h3>
-            <p class="section-subtitle">Keyboards are broadly categorized by their underlying switch technologies and ergonomic layouts. Review the dominant configurations below:</p>
+          <!-- 1.3 Structure and Working Principle -->
+          <div class="detail-section" id="working-section">
+            <h3 class="section-title">1.3 Structure and Working Principle</h3>
+            <p class="section-desc-text">
+              Internally, a keyboard contains a <strong>key matrix</strong>, which is a network of rows and columns of electrical circuits.
+            </p>
+            <div class="buying-guide-card" style="border-left-color: #10b981;">
+              <h4 style="margin-top:0; color:#10b981;">Working Process:</h4>
+              <ol style="padding-left: 20px; margin: 10px 0; line-height: 1.6;">
+                <li>A user presses a key.</li>
+                <li>The key connects a specific row and column within the matrix, completing the circuit.</li>
+                <li>The keyboard controller detects the location of the completed circuit.</li>
+                <li>A microcontroller processes the signal and identifies the corresponding character using a character map stored in memory.</li>
+                <li>The key code is sent to the computer.</li>
+                <li>The operating system displays the character or executes the command.</li>
+              </ol>
+              <p style="margin-bottom:0; font-size:14px; color:var(--text-secondary);">
+                Most modern keyboards use dedicated microcontrollers such as the <strong>Intel 8048 family</strong> or newer embedded processors.
+              </p>
+            </div>
+          </div>
+
+          <!-- 1.4 Types of Keyboards -->
+          <div class="detail-section" id="types-section">
+            <h3 class="section-title">1.4 Types of Keyboards</h3>
+            <p class="section-subtitle">Modern keyboards utilize several underlying switch technologies and mechanisms. Review the primary configurations:</p>
+            
             <div class="subtypes-grid">
-              <!-- Mechanical -->
+              <!-- Dome-Switch -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&q=80&w=400" alt="Dome-Switch Keyboard" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>A. Dome-Switch Keyboard</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top:0;">The dome-switch keyboard is the most common and economical keyboard type.</p>
+                  <strong>Construction:</strong>
+                  <ul style="padding-left:18px; margin: 6px 0;">
+                    <li>Rubber dome beneath each key.</li>
+                    <li>Conductive carbon pad at the center.</li>
+                    <li>Flexible membrane circuit.</li>
+                  </ul>
+                  <strong>Working:</strong> When a key is pressed, the rubber dome collapses and the conductive pad touches the circuit layer, completing the electrical connection.
+                  <div style="margin-top:10px; display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+                    <div>
+                      <strong style="color:#10b981;">Advantages:</strong>
+                      <ul style="padding-left:12px; margin:4px 0; font-size:12px;">
+                        <li>Low manufacturing cost.</li>
+                        <li>Quiet operation.</li>
+                        <li>Good resistance to spills.</li>
+                        <li>Lightweight design.</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <strong style="color:#ef4444;">Disadvantages:</strong>
+                      <ul style="padding-left:12px; margin:4px 0; font-size:12px;">
+                        <li>Limited lifespan.</li>
+                        <li>Less tactile feedback.</li>
+                        <li>Performance decreases over time.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scissor-Switch -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=400" alt="Scissor-Switch Keyboard" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>B. Scissor-Switch Keyboard</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top:0;">Scissor-switch keyboards are commonly found in laptop computers.</p>
+                  <strong>Construction:</strong> Two interlocking plastic pieces form a scissor-like mechanism beneath each key.
+                  <div style="margin-top:10px;">
+                    <strong style="color:#10b981;">Advantages:</strong>
+                    <ul style="padding-left:18px; margin:4px 0;">
+                      <li>Thin profile.</li>
+                      <li>Quiet operation.</li>
+                      <li>Fast response.</li>
+                      <li>Comfortable typing experience.</li>
+                    </ul>
+                  </div>
+                  <div style="margin-top:10px;">
+                    <strong>Applications:</strong> Laptop computers, ultra-thin desktop keyboards.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mechanical Switch -->
               <div class="subtype-detail-card">
                 <div class="subtype-card-img-wrapper">
                   <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&q=80&w=400" alt="Mechanical Keyboard" loading="lazy">
                 </div>
                 <div class="subtype-header">
-                  <h4>Mechanical Keyboard</h4>
+                  <h4>C. Mechanical Keyboard</h4>
                 </div>
-                <div class="subtype-specs">
-                  <div class="sub-spec-row"><span class="sub-spec-label">Mechanism:</span><span class="sub-spec-value">Individual physical switch per key (spring-loaded)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Durability:</span><span class="sub-spec-value">High (50M - 100M presses)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Tactility:</span><span class="sub-spec-value">Highly tactile with audible click / bump feedback</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Suitability:</span><span class="sub-spec-value">Gamers, coders, writers needing precise, fast keystrokes</span></div>
-                </div>
-              </div>
-              
-              <!-- Membrane -->
-              <div class="subtype-detail-card">
-                <div class="subtype-card-img-wrapper">
-                  <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&q=80&w=400" alt="Membrane Keyboard" loading="lazy">
-                </div>
-                <div class="subtype-header">
-                  <h4>Membrane Keyboard</h4>
-                </div>
-                <div class="subtype-specs">
-                  <div class="sub-spec-row"><span class="sub-spec-label">Mechanism:</span><span class="sub-spec-value">Silicone dome keypress sheet over printed copper tracings</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Durability:</span><span class="sub-spec-value">Moderate (5M - 10M presses)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Tactility:</span><span class="sub-spec-value">Soft, mushy, quiet key feedback</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Suitability:</span><span class="sub-spec-value">Quiet office desks and budget home environments</span></div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top:0;">Mechanical keyboards use independent mechanical switches beneath every key.</p>
+                  <strong>Working:</strong> Each switch contains a spring, stem, and metal contact. Pressing the key activates the switch and generates an electrical signal.
+                  <div style="margin-top:10px;">
+                    <strong style="color:#10b981;">Advantages:</strong>
+                    <ul style="padding-left:18px; margin:4px 0;">
+                      <li>Excellent tactile feedback.</li>
+                      <li>High durability (typically 50–100 million keystrokes per switch).</li>
+                      <li>Accurate typing.</li>
+                      <li>Preferred by gamers and programmers.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
-              <!-- Ergonomic -->
+              <!-- Capacitive Keyboard -->
               <div class="subtype-detail-card">
                 <div class="subtype-card-img-wrapper">
-                  <img src="https://images.unsplash.com/photo-1626908013351-800ddd734b8a?auto=format&fit=crop&q=80&w=400" alt="Ergonomic Keyboard" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1601445638532-3c6f6c3aa1d6?auto=format&fit=crop&q=80&w=400" alt="Capacitive Keyboard" loading="lazy">
                 </div>
                 <div class="subtype-header">
-                  <h4>Ergonomic Keyboard</h4>
+                  <h4>D. Capacitive Keyboard</h4>
                 </div>
-                <div class="subtype-specs">
-                  <div class="sub-spec-row"><span class="sub-spec-label">Mechanism:</span><span class="sub-spec-value">Angled or split keyboard layouts designed for body alignment</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Durability:</span><span class="sub-spec-value">Variable based on switch configuration (membrane or mech)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Tactility:</span><span class="sub-spec-value">Variable based on switch configuration</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Suitability:</span><span class="sub-spec-value">Writers suffering wrist fatigue, RSI, or carpal tunnel strain</span></div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top:0;">Capacitive keyboards operate without direct electrical contact.</p>
+                  <strong>Working:</strong> The key press changes the capacitance between conductive plates. Sensors detect this change and register the keystroke.
+                  <div style="margin-top:10px;">
+                    <strong style="color:#10b981;">Advantages:</strong>
+                    <ul style="padding-left:18px; margin:4px 0;">
+                      <li>Extremely durable.</li>
+                      <li>No contact wear.</li>
+                      <li>No key bounce.</li>
+                      <li>Very reliable.</li>
+                    </ul>
+                  </div>
+                  <div style="margin-top:10px;">
+                    <strong>Applications:</strong> High-end professional equipment, industrial environments.
+                  </div>
                 </div>
               </div>
+
+              <!-- Hall-Effect Keyboard -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=400" alt="Hall-Effect Keyboard" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>E. Hall-Effect Keyboard</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top:0;">Hall-effect keyboards use magnetic field sensing technology.</p>
+                  <strong>Working:</strong> A magnet attached to the key moves near a Hall sensor. The sensor detects changes in the magnetic field and generates a signal.
+                  <div style="margin-top:10px;">
+                    <strong style="color:#10b981;">Advantages:</strong>
+                    <ul style="padding-left:18px; margin:4px 0;">
+                      <li>Extremely reliable.</li>
+                      <li>Resistant to dust and moisture.</li>
+                      <li>Long operational life.</li>
+                    </ul>
+                  </div>
+                  <div style="margin-top:10px;">
+                    <strong>Applications:</strong> Aircraft systems, nuclear facilities, military equipment.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Membrane Keyboard -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1626908013351-800ddd734b8a?auto=format&fit=crop&q=80&w=400" alt="Membrane Keyboard" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>F. Membrane Keyboard</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top:0;">Membrane keyboards use a continuous pressure-sensitive membrane layer.</p>
+                  <div style="margin-top:10px;">
+                    <strong style="color:#10b981;">Advantages:</strong>
+                    <ul style="padding-left:18px; margin:4px 0;">
+                      <li>Silent operation.</li>
+                      <li>Water resistance.</li>
+                      <li>Low cost.</li>
+                    </ul>
+                  </div>
+                  <div style="margin-top:10px;">
+                    <strong>Applications:</strong> Medical equipment, industrial control panels.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Laser Keyboard -->
+              <div class="subtype-detail-card">
+                <div class="subtype-card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1521898284481-a5ec348cb555?auto=format&fit=crop&q=80&w=400" alt="Laser Keyboard" loading="lazy">
+                </div>
+                <div class="subtype-header">
+                  <h4>G. Laser Keyboard</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top:0;">A laser keyboard projects a virtual keyboard onto a flat surface.</p>
+                  <strong>Working:</strong> A laser projects key patterns, infrared sensors detect finger movement, and the device interprets interrupted light patterns as keystrokes.
+                  <div style="margin-top:10px;">
+                    <strong style="color:#10b981;">Advantages:</strong>
+                    <ul style="padding-left:18px; margin:4px 0;">
+                      <li>Portable.</li>
+                      <li>Compact.</li>
+                      <li>No physical keys.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 1.5 Keyboard Connectivity Technologies -->
+          <div class="detail-section" id="connectivity-section">
+            <h3 class="section-title">1.5 Keyboard Connectivity Technologies</h3>
+            <p class="section-subtitle">Modern keyboards connect through several interfaces:</p>
+            <div class="table-responsive">
+              <table class="specs-table">
+                <thead>
+                  <tr>
+                    <th>Interface</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="spec-label">AT (DIN-5)</td>
+                    <td class="spec-val">Early IBM keyboard connector</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">PS/2</td>
+                    <td class="spec-val">Standard PC connector in the 1990s</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">USB</td>
+                    <td class="spec-val">Modern wired standard</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Bluetooth</td>
+                    <td class="spec-val">Wireless communication</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">RF Wireless</td>
+                    <td class="spec-val">Radio frequency wireless communication</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Infrared</td>
+                    <td class="spec-val">Optical wireless communication</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
@@ -229,95 +416,51 @@
             </div>
           </div>
 
-          <!-- Real-Life Applications -->
+          <!-- 1.6 Applications of Keyboards -->
           <div class="detail-section" id="apps-section">
-            <h3 class="section-title">Real-Life Applications</h3>
-            <p class="section-subtitle">How the Keyboard is utilized across primary organizational sectors:</p>
+            <h3 class="section-title">1.6 Applications of Keyboards</h3>
             <div class="apps-grid">
               <div class="app-item-card">
                 <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
-                  </span>
-                  <h4>Education Use</h4>
+                  <h4>Document Preparation</h4>
                 </div>
-                <p>Essential for students writing reports, learning computer literacy, learning touch-typing, and programming.</p>
+                <p>Writing, editing, and producing standard document formats.</p>
               </div>
               <div class="app-item-card">
                 <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                  </span>
-                  <h4>Business Use</h4>
+                  <h4>Programming</h4>
                 </div>
-                <p>Used for creating reports, drafting proposals, writing emails, managing databases, and general data entry.</p>
+                <p>Writing, debugging, and executing software source codes.</p>
               </div>
               <div class="app-item-card">
                 <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                  </span>
-                  <h4>Healthcare Use</h4>
+                  <h4>Gaming</h4>
                 </div>
-                <p>Used by practitioners for entering patient health records, updating charts, and writing prescription details.</p>
+                <p>Executing precise commands and directional controls in digital games.</p>
               </div>
               <div class="app-item-card">
                 <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
-                  </span>
-                  <h4>Banking Use</h4>
+                  <h4>Data Entry</h4>
                 </div>
-                <p>Enables bank operators to input customer account data, log transactions, and execute database search operations.</p>
+                <p>Logging numbers, inventory, and database record details.</p>
               </div>
               <div class="app-item-card">
                 <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                  </span>
-                  <h4>Home Use</h4>
+                  <h4>Industrial Control</h4>
                 </div>
-                <p>Used for casual web browsing, communicating via chats, writing emails, and controls in video games.</p>
+                <p>Interfacing with control panel coordinates and industrial networks.</p>
               </div>
               <div class="app-item-card">
                 <div class="app-icon-header">
-                  <span class="app-badge-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 22Z"></path><path d="M12 8V16"></path><path d="M8 12H16"></path></svg>
-                  </span>
-                  <h4>Graphic Design Use</h4>
+                  <h4>Educational Systems</h4>
                 </div>
-                <p>Vital for executing keyboard shortcuts in editing software (Photoshop, Illustrator) to optimize workflow speed.</p>
+                <p>Providing hardware interaction interfaces for classroom learning systems.</p>
               </div>
-            </div>
-          </div>
-
-          <!-- Pros and Cons -->
-          <div class="detail-section" id="advantages-section">
-            <h3 class="section-title">Advantages and Disadvantages</h3>
-            <p class="section-subtitle">Key trade-offs to evaluate when considering Keyboard systems:</p>
-            <div class="pros-cons-grid">
-              <div class="pros-card">
-                <div class="card-pros-header">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pros-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                  <h4>Advantages</h4>
+              <div class="app-item-card">
+                <div class="app-icon-header">
+                  <h4>Banking Systems</h4>
                 </div>
-                <ul>
-                  <li>Extremely high efficiency and speed for text input once mastered.</li>
-                  <li>Tactile mechanical switches provide high accuracy and reduce typing errors.</li>
-                  <li>Extensive keyboard shortcuts allow power users to bypass mouse navigation entirely.</li>
-                </ul>
-              </div>
-
-              <div class="cons-card">
-                <div class="card-cons-header">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="cons-icon"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                  <h4>Disadvantages</h4>
-                </div>
-                <ul>
-                  <li>Repetitive typing can lead to physical strains like Carpal Tunnel Syndrome or RSI.</li>
-                  <li>Mechanical switches can be noisy, making them disruptive in quiet office environments.</li>
-                  <li>Not suitable for spatial pointing, drawing, or freehand graphic editing.</li>
-                </ul>
+                <p>Entering transaction amounts, account IDs, and administrative approvals.</p>
               </div>
             </div>
           </div>
