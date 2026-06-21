@@ -1071,7 +1071,7 @@ async function callGeminiAPI(prompt, systemInstruction = "", formatJson = false)
     throw new Error("API_KEY_MISSING");
   }
   
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
   
   const requestBody = {
     contents: [{ parts: [{ text: prompt }] }],
