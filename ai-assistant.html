@@ -147,17 +147,17 @@
   <div id="api-modal-overlay" class="api-modal-overlay">
     <div class="api-modal-box">
       <div class="api-modal-header">
-        <span class="api-modal-title">Configure Gemini API</span>
+        <span class="api-modal-title">Configure Groq API</span>
         <button class="api-modal-close" onclick="closeApiKeyModal()">&times;</button>
       </div>
       <div class="api-modal-body">
         <p>
-          Enter your Gemini API key below. This enables the **AI Chatbot** and **AI Quiz Generator** to run real queries.
+          Enter your <strong>Groq API key</strong> below. This enables the AI Chatbot and AI Quiz Generator. Groq is <strong>completely free</strong> — no credit card needed.
         </p>
         <p style="font-size:12px; color:var(--text-secondary);">
-          Your key is saved locally in your browser storage and never uploaded anywhere. You can get a free key from Google AI Studio.
+          Your key is saved locally in your browser and never uploaded anywhere. Get a free key at <a href="https://console.groq.com/keys" target="_blank" style="color:var(--accent);">console.groq.com/keys</a>.
         </p>
-        <input type="password" id="gemini-api-key-input" class="api-input-field" placeholder="Paste your API Key here...">
+        <input type="password" id="gemini-api-key-input" class="api-input-field" placeholder="Paste your Groq API Key here (gsk_...)">
         <button class="api-save-btn" onclick="saveApiKey()">Save API Settings</button>
       </div>
     </div>

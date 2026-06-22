@@ -2189,6 +2189,8 @@ main.main-viewport {
   flex-direction: column;
   gap: 16px;
   background-color: var(--bg-secondary);
+  overflow-y: auto;
+  min-height: 0;
 }
 .chat-sidebar-title {
   font-size: 14px;
@@ -2217,15 +2219,20 @@ main.main-viewport {
 .chat-main-console {
   display: flex;
   flex-direction: column;
+  min-height: 0; /* Critical: allows flex child to shrink so overflow-y scroll works */
+  overflow: hidden;
 }
 .chat-console-viewport {
   flex: 1;
+  min-height: 0; /* Critical: prevents flex child from overflowing its container */
   padding: 24px;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 20px;
   background-color: var(--bg-card);
+  scroll-behavior: smooth;
 }
 .chat-console-viewport .chat-message-row {
   max-width: 75%;

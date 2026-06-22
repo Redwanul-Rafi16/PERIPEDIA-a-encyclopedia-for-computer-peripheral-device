@@ -1,5 +1,5 @@
 // Peripheral Device Encyclopedia ("Peripedia") - script.js
-localStorage.setItem("gemini_api_key", "AQ.Ab8RN6I-Dcc-upOktizKECXCftI7COe8DLH3CGbCPxHJv3x96Q");
+// API key is configured by the user via the 'Configure API Key' modal.
 
 // 1. Shared Database for Comparison Engine
 const COMPARE_DATABASE = {
@@ -1065,32 +1065,35 @@ const MATCHING_TEMPLATES = [
   { left: "Headphone", right: "Output (Private Ear Driver)" }
 ];
 
-// 12. Gemini API Client logic
+// 12. Groq API Client (free tier, no billing required)
 async function callGeminiAPI(prompt, systemInstruction = "", formatJson = false) {
-  const apiKey = localStorage.getItem("gemini_api_key");
+  const apiKey = localStorage.getItem("groq_api_key");
   if (!apiKey) {
     throw new Error("API_KEY_MISSING");
   }
-  
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
-  
-  const requestBody = {
-    contents: [{ parts: [{ text: prompt }] }],
-    generationConfig: {}
-  };
-  
+
+  const messages = [];
   if (systemInstruction) {
-    requestBody.systemInstruction = { parts: [{ text: systemInstruction }] };
+    messages.push({ role: "system", content: systemInstruction });
   }
-  
+  messages.push({ role: "user", content: prompt });
+
+  const requestBody = {
+    model: "llama-3.3-70b-versatile",
+    messages: messages,
+    temperature: 0.7,
+    max_tokens: 1024
+  };
+
   if (formatJson) {
-    requestBody.generationConfig.responseMimeType = "application/json";
+    requestBody.response_format = { type: "json_object" };
   }
 
-  const response = await fetch(url, {
+  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${apiKey}`
     },
     body: JSON.stringify(requestBody)
   });
@@ -1103,10 +1106,10 @@ async function callGeminiAPI(prompt, systemInstruction = "", formatJson = false)
   }
 
   const responseData = await response.json();
-  if (responseData.candidates && responseData.candidates[0].content && responseData.candidates[0].content.parts) {
-    return responseData.candidates[0].content.parts[0].text;
+  if (responseData.choices && responseData.choices[0] && responseData.choices[0].message) {
+    return responseData.choices[0].message.content;
   }
-  throw new Error("Invalid response format received from Gemini.");
+  throw new Error("Invalid response format received from Groq.");
 }
 
 // Global API Key settings modal control
@@ -1117,7 +1120,7 @@ window.setupApiKeyModal = function() {
   window.openApiKeyModal = function() {
     const input = document.getElementById("gemini-api-key-input");
     if (input) {
-      input.value = localStorage.getItem("gemini_api_key") || "";
+      input.value = localStorage.getItem("groq_api_key") || "";
     }
     overlay.classList.add("open");
   };
@@ -1131,10 +1134,10 @@ window.setupApiKeyModal = function() {
     if (input) {
       const key = input.value.trim();
       if (key) {
-        localStorage.setItem("gemini_api_key", key);
-        alert("API Key saved successfully!");
+        localStorage.setItem("groq_api_key", key);
+        alert("Groq API Key saved successfully!");
       } else {
-        localStorage.removeItem("gemini_api_key");
+        localStorage.removeItem("groq_api_key");
         alert("API Key removed.");
       }
       closeApiKeyModal();
@@ -1274,7 +1277,7 @@ window.sendFloatingChatMessage = async function() {
     const system = "You are the 'Peripheral AI Assistant' for Peripedia. You help users learn about computer peripheral devices and answer educational questions. RULES: 1. Answer ONLY topics related to computer peripheral devices: Keyboard, Mouse, Printer, Scanner, Monitor, Speaker, Microphone, Webcam, Plotter, Joystick, Touchscreen, Barcode Reader, Projector, Storage Devices. 2. If the user asks about ANY unrelated topic, you MUST respond exactly: 'I am Peripheral AI Assistant. I can only answer questions related to computer peripheral devices.' 3. When answering a valid topic, you MUST structure your response with: Definition, Working Principle, Key Specifications, Real-life Applications, Advantages, Disadvantages. 4. Keep the language academic, clear, and professional.";
     
     // Check key
-    const key = localStorage.getItem("gemini_api_key");
+    const key = localStorage.getItem("groq_api_key");
     let aiResponse = "";
     if (!key) {
       // Simulation mode fallback
@@ -1905,10 +1908,10 @@ window.generateAIQuiz = async function() {
   if (!viewport) return;
 
   // Check key
-  const key = localStorage.getItem("gemini_api_key");
+  const key = localStorage.getItem("groq_api_key");
   if (!key) {
     // Simulation fallback
-    alert("No Gemini API Key entered. Proceeding in simulation mode with 5 premium questions.");
+    alert("No Groq API Key entered. Proceeding in simulation mode with 5 premium questions.");
     const simQuestions = [
       { q: "What primary factor causes modern high-speed laser scanners to create lighter/darker outputs?", options: ["Scanning head friction", "Dwell time of laser reflection on target area", "Sensor capacitor cooling rate", "CMOS shutter aperture sizing"], answer: 1, explanation: "The dwell time of reflection determines light absorption levels mapped onto the digital scanner matrix." },
       { q: "How do capacitive key switches differ from mechanical spring contact switches?", options: ["They emit wireless radio frequencies", "They measure distance changes of capacitor plates rather than physical metal clicks", "They run on separate liquid toner supplies", "They require mechanical gears to register keys"], answer: 1, explanation: "Capacitive switches detect key placement via variable capacitance shifts between plates, avoiding mechanical contact wear." },
@@ -1932,26 +1935,56 @@ window.generateAIQuiz = async function() {
         <div class="typing-dot"></div>
       </div>
       <p style="font-weight: 700; color: var(--accent);">AI Assistant is generating custom questions about ${device} technology...</p>
-      <p style="font-size:12.5px; color:var(--text-secondary);">This may take a few seconds as we query Gemini.</p>
+      <p style="font-size:12.5px; color:var(--text-secondary);">This may take a few seconds as we query Groq AI.</p>
     </div>
   `;
 
   try {
-    const prompt = `Generate a quiz containing exactly ${countVal} ${difficulty} difficulty questions about ${device} technology. The output MUST be a valid JSON array of objects. Each object MUST contain these keys exactly: "q" (question string), "options" (array of 4 distinct strings), "answer" (integer index 0-3 of the correct option in the array), and "explanation" (detailed scientific explanation string). Respond ONLY with the raw JSON, do not wrap in markdown \`\`\`json blocks.`;
-    const responseText = await callGeminiAPI(prompt, "You are a professional CSE professor writing tough academic questions. You output raw JSON arrays only.", true);
-    
-    // Parse response
-    const parsedData = JSON.parse(responseText);
-    if (Array.isArray(parsedData) && parsedData.length > 0) {
-      activeQuizQuestions = parsedData;
+    const prompt = `Generate exactly ${countVal} ${difficulty} difficulty quiz questions about ${device} computer peripheral technology.
+
+Return ONLY a JSON array. No other text before or after.
+
+Each element must be an object with:
+- "q": the question text
+- "options": array of 4 answer choices
+- "answer": index (0-3) of the correct option
+- "explanation": brief explanation
+
+Example:
+[{"q":"What is DPI?","options":["Dots Per Inch","Data Per Input","Digital Pixel Index","Drive Port Interface"],"answer":0,"explanation":"DPI stands for Dots Per Inch."}]`;
+
+    const responseText = await callGeminiAPI(prompt, "You are a quiz generator that outputs ONLY valid JSON arrays. No markdown fences, no commentary, no extra text. Output starts with [ and ends with ].", false);
+
+    // Log raw response for debugging
+    console.log("[AI Quiz] Raw Groq response:", responseText);
+
+    // Step 1: Strip markdown code fences if present
+    let cleaned = responseText.trim();
+    cleaned = cleaned.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim();
+
+    // Step 2: Find the outermost [ ... ] brackets
+    const firstBracket = cleaned.indexOf("[");
+    const lastBracket = cleaned.lastIndexOf("]");
+
+    if (firstBracket === -1 || lastBracket === -1 || lastBracket <= firstBracket) {
+      console.error("[AI Quiz] Could not find JSON array brackets in:", cleaned);
+      throw new Error("AI response did not contain a valid JSON array.");
+    }
+
+    const jsonString = cleaned.substring(firstBracket, lastBracket + 1);
+    const questionsArray = JSON.parse(jsonString);
+
+    if (Array.isArray(questionsArray) && questionsArray.length > 0) {
+      activeQuizQuestions = questionsArray;
       currentQuestionIndex = 0;
       quizScore = 0;
       selectedAnswerIndex = null;
       renderCurrentQuizQuestion(viewport);
     } else {
-      throw new Error("Parsed data was not a valid array.");
+      throw new Error("Parsed data was empty or not an array.");
     }
   } catch (error) {
+    console.error("[AI Quiz] Generation failed:", error);
     alert(`Failed to generate AI Quiz: ${error.message}. Fallback to local practice questions.`);
     startDashboardConfiguredQuiz(viewport);
   }
@@ -1968,13 +2001,13 @@ window.initAiAssistant = function() {
   // Set up API config state display on page
   const keyBtn = document.getElementById("console-api-status-btn");
   if (keyBtn) {
-    const hasKey = !!localStorage.getItem("gemini_api_key");
+    const hasKey = !!localStorage.getItem("groq_api_key");
     if (hasKey) {
-      keyBtn.innerHTML = `🔑 API Key Configured`;
+      keyBtn.innerHTML = `🔑 Groq API Key Configured`;
       keyBtn.style.color = "#10b981";
       keyBtn.style.borderColor = "#10b981";
     } else {
-      keyBtn.innerHTML = `🔑 Configure API Key`;
+      keyBtn.innerHTML = `🔑 Configure Groq API Key`;
     }
   }
 };
@@ -2013,7 +2046,7 @@ window.sendConsoleChatMessage = async function() {
     const system = "You are the 'Peripheral AI Assistant' for Peripedia. You help users learn about computer peripheral devices and answer educational questions. RULES: 1. Answer ONLY topics related to computer peripheral devices: Keyboard, Mouse, Printer, Scanner, Monitor, Speaker, Microphone, Webcam, Plotter, Joystick, Touchscreen, Barcode Reader, Projector, Storage Devices. 2. If the user asks about ANY unrelated topic, you MUST respond exactly: 'I am Peripheral AI Assistant. I can only answer questions related to computer peripheral devices.' 3. When answering a valid topic, you MUST structure your response with: Definition, Working Principle, Key Specifications, Real-life Applications, Advantages, Disadvantages. 4. Keep the language academic, clear, and professional.";
     
     // Check key
-    const key = localStorage.getItem("gemini_api_key");
+    const key = localStorage.getItem("groq_api_key");
     let aiResponse = "";
     if (!key) {
       // Simulation mode
