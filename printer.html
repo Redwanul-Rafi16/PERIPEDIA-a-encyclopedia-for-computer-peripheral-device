@@ -70,11 +70,9 @@
             <ul class="sidebar-links-list">
               <li><a href="#overview" class="subnav-link active" onclick="scrollToDetailSection('overview-section', this)">Device Overview</a></li>
               <li><a href="#working" class="subnav-link" onclick="scrollToDetailSection('working-section', this)">Working Principle</a></li>
-              <li><a href="#specs" class="subnav-link" onclick="scrollToDetailSection('specs-section', this)">Specifications</a></li>
-              <li><a href="#subtypes" class="subnav-link" onclick="scrollToDetailSection('subtypes-section', this)">Device Subtypes</a></li>
+              <li><a href="#specs" class="subnav-link" onclick="scrollToDetailSection('specs-section', this)">Comparison Table</a></li>
               <li><a href="#guide" class="subnav-link" onclick="scrollToDetailSection('guide-section', this)">Buying Guide</a></li>
               <li><a href="#apps" class="subnav-link" onclick="scrollToDetailSection('apps-section', this)">Real-Life Applications</a></li>
-              <li><a href="#advantages" class="subnav-link" onclick="scrollToDetailSection('advantages-section', this)">Pros & Cons</a></li>
               <li><a href="#quiz" class="subnav-link" onclick="scrollToDetailSection('quiz-section', this)">Practice Quiz</a></li>
             </ul>
             <a href="compare.html" class="sidebar-compare-cta-btn">Compare with another device &rarr;</a>
@@ -91,134 +89,260 @@
             </div>
             <h3 class="section-title">What is a Printer?</h3>
             <p class="section-desc-text">
-              A printer is a peripheral device that accepts text and graphic output from a computer and transfers the information to paper, usually to standard-sized sheets of paper. Printers vary in size, speed, sophistication, and cost. In general, more expensive printers are used for higher-resolution color printing or heavy-volume commercial operations. Personal printers are typically used for low-volume, high-quality household or office documents. The primary printing technologies are inkjet (using liquid ink cartridges sprayed through tiny nozzles) and laser (using dry toner powder melted onto the paper using a heated fuser). Other types include thermal printers (often used for receipts) and 3D printers, which build physical models layer by layer.
+              A printer is an output device that produces a hard copy (permanent human-readable text and/or graphics) of documents stored electronically on a computer. It prints information onto physical media such as paper or transparencies. Printers may be connected directly to a computer or through a network.
             </p>
+
+            <h4 style="margin-top: 24px; color: var(--text-primary);">Basic Technologies of Printers</h4>
+            <p class="section-desc-text">
+              Printer technologies are divided into two main categories:
+            </p>
+
+            <div class="subtypes-grid" style="margin-top: 16px;">
+              <!-- Impact Printers -->
+              <div class="subtype-detail-card">
+                <div class="subtype-header" style="border-left: 4px solid var(--accent); padding-left: 12px;">
+                  <h4 style="margin: 0; font-size: 16px;">1. Impact Printers</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top: 0; line-height: 1.5;">
+                    Impact printers create images by physically striking the paper through an ink ribbon.
+                  </p>
+                  <strong>Types of Impact Printers:</strong>
+                  <ul style="padding-left: 18px; margin: 8px 0 0 0; line-height: 1.5;">
+                    <li>Dot Matrix Printer</li>
+                    <li>Character Printer</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Non-Impact Printers -->
+              <div class="subtype-detail-card">
+                <div class="subtype-header" style="border-left: 4px solid var(--accent); padding-left: 12px;">
+                  <h4 style="margin: 0; font-size: 16px;">2. Non-Impact Printers</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top: 0; line-height: 1.5;">
+                    Non-impact printers create images without touching the paper directly.
+                  </p>
+                  <strong>Types of Non-Impact Printers:</strong>
+                  <ul style="padding-left: 18px; margin: 8px 0 0 0; line-height: 1.5;">
+                    <li>Inkjet Printer</li>
+                    <li>Laser Printer</li>
+                    <li>Solid Ink Printer</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Working Principle -->
           <div class="detail-section" id="working-section">
             <h3 class="section-title">Working Principle</h3>
             <p class="section-desc-text">
-              The working principle depends on the technology. In an inkjet printer, the computer sends digital data to the printer, which commands a print head containing hundreds of micro-nozzles. Thermal or piezoelectric elements in the nozzles heat or squeeze the liquid ink, forcing microscopic droplets onto precise coordinates on the paper as the print head moves horizontally. In a laser printer, a laser beam draws an electrostatic image of the document onto a photosensitive rotating drum. The charged drum attracts dry toner powder. The paper passes under the drum, transferring the toner, which is then permanently melted into the paper fibers by a heated fuser unit.
+              The printing process and mechanical operation vary significantly based on the underlying technology. Below are the detailed working procedures for the three primary printer types:
             </p>
+
+            <!-- Inkjet Printer -->
+            <div class="buying-guide-card" style="border-left-color: var(--accent); margin-bottom: 24px;">
+              <h4 style="margin-top: 0; color: var(--accent); font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 22Z"></path><path d="M12 8V16"></path><path d="M8 12H16"></path></svg>
+                Inkjet Printer
+              </h4>
+              <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;">
+                The inkjet printer printing process works by spraying tiny droplets of ink onto paper to create text and images.
+              </p>
+              
+              <div style="text-align: center; margin: 16px 0; background: var(--bg-secondary); padding: 12px; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&q=80&w=600" alt="Components of Inkjet Printer" style="max-width: 100%; height: auto; border-radius: 6px; margin-bottom: 6px;">
+                <div style="font-size: 12px; color: var(--text-secondary); font-style: italic;">fig: components of inkjet printer</div>
+              </div>
+
+              <h5 style="margin: 12px 0 6px 0; font-size: 14px; color: var(--text-primary);">Working Procedure:</h5>
+              <ol style="padding-left: 20px; margin: 0; line-height: 1.6; font-size: 14px;">
+                <li style="margin-bottom: 6px;"><strong>Print Command:</strong> The computer sends the document data to the printer driver, which converts it into a format the printer can understand.</li>
+                <li style="margin-bottom: 6px;"><strong>Data Transfer:</strong> The processed data is sent from the computer to the printer and stored in the printer's memory (buffer).</li>
+                <li style="margin-bottom: 6px;"><strong>Paper Feeding:</strong> The paper feed motor activates rollers that pull a sheet of paper into the printer.</li>
+                <li style="margin-bottom: 6px;"><strong>Printing:</strong> The print head moves back and forth across the paper, spraying tiny droplets of ink through its nozzles to form text and images.</li>
+                <li style="margin-bottom: 6px;"><strong>Color Formation:</strong> The printer combines CMYK inks (Cyan, Magenta, Yellow, and Black) in precise amounts to produce different colors.</li>
+                <li style="margin-bottom: 6px;"><strong>Paper Advancement:</strong> After each pass of the print head, the paper moves forward slightly, and the process repeats until the entire page is printed.</li>
+              </ol>
+              <p style="margin-top: 10px; margin-bottom: 0; font-size: 13.5px; color: var(--text-secondary); border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                <strong>Completion:</strong> Once printing is finished, the print head is parked and the printed page is pushed into the output tray.
+              </p>
+            </div>
+
+            <!-- Laser Printer -->
+            <div class="buying-guide-card" style="border-left-color: #10b981; margin-bottom: 24px;">
+              <h4 style="margin-top: 0; color: #10b981; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M17 5l-1.5 1.5M19 12h-2M17 19l-1.5-1.5M12 20v2M7 19l1.5-1.5M5 12H3M7 5l1.5 1.5"></path></svg>
+                Laser Printer
+              </h4>
+              <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;">
+                A laser printer uses static electricity, a laser beam, toner powder, and heat to print text and images on paper.
+              </p>
+
+              <div style="text-align: center; margin: 16px 0; background: var(--bg-secondary); padding: 12px; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600" alt="Components of Laser Printer" style="max-width: 100%; height: auto; border-radius: 6px; margin-bottom: 6px;">
+                <div style="font-size: 12px; color: var(--text-secondary); font-style: italic;">fig: the basic components of a laser printer</div>
+              </div>
+
+              <h5 style="margin: 12px 0 6px 0; font-size: 14px; color: var(--text-primary);">Working Procedure:</h5>
+              <ol style="padding-left: 20px; margin: 0; line-height: 1.6; font-size: 14px;">
+                <li style="margin-bottom: 6px;"><strong>Charging the Drum:</strong> The photoconductive drum is given a uniform electrical charge.</li>
+                <li style="margin-bottom: 6px;"><strong>Writing the Image:</strong> A laser beam scans the drum and creates an electrostatic image by discharging selected areas corresponding to the text or graphics to be printed.</li>
+                <li style="margin-bottom: 6px;"><strong>Applying Toner:</strong> Positively charged toner powder sticks to the discharged areas on the drum, forming the image.</li>
+                <li style="margin-bottom: 6px;"><strong>Transferring to Paper:</strong> The paper is given an electrical charge and passes under the drum. The toner is attracted from the drum onto the paper.</li>
+                <li style="margin-bottom: 6px;"><strong>Fusing:</strong> The paper passes through heated rollers called the fuser, which melt the toner and permanently bond it to the paper.</li>
+                <li style="margin-bottom: 6px;"><strong>Cleaning and Recharging:</strong> The drum is cleaned and recharged, making it ready for the next print cycle.</li>
+              </ol>
+            </div>
+
+            <!-- Dot Matrix Printer -->
+            <div class="buying-guide-card" style="border-left-color: #3b82f6; margin-bottom: 0;">
+              <h4 style="margin-top: 0; color: #3b82f6; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5v14M6 5v14M9 5v14M12 5v14M15 5v14M18 5v14M21 5v14"></path></svg>
+                Dot Matrix Printer
+              </h4>
+              <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;">
+                A Dot Matrix Printer is an impact printer that prints by striking an ink-soaked ribbon against paper using tiny pins.
+              </p>
+
+              <div style="text-align: center; margin: 16px 0; background: var(--bg-secondary); padding: 12px; border-radius: 8px;">
+                <img src="https://images.unsplash.com/photo-1596495578065-6e07cf501135?auto=format&fit=crop&q=80&w=600" alt="Dot Matrix Printer" style="max-width: 100%; height: auto; border-radius: 6px; margin-bottom: 6px;">
+                <div style="font-size: 12px; color: var(--text-secondary); font-style: italic;">fig: components of a dot matrix printer</div>
+              </div>
+
+              <h5 style="margin: 12px 0 6px 0; font-size: 14px; color: var(--text-primary);">Working Procedure:</h5>
+              <ol style="padding-left: 20px; margin: 0; line-height: 1.6; font-size: 14px;">
+                <li style="margin-bottom: 6px;"><strong>Data Reception:</strong> The printer receives text or graphics data from the computer.</li>
+                <li style="margin-bottom: 6px;"><strong>Print Head Movement:</strong> The print head moves back and forth across the paper.</li>
+                <li style="margin-bottom: 6px;"><strong>Pin Activation:</strong> Small metal pins (wires) in the print head are activated by electromagnets.</li>
+                <li style="margin-bottom: 6px;"><strong>Impact on Ribbon:</strong> The pins strike an ink-soaked ribbon, which transfers ink onto the paper.</li>
+                <li style="margin-bottom: 6px;"><strong>Character Formation:</strong> Multiple dots are printed close together to form letters, numbers, and graphics.</li>
+                <li style="margin-bottom: 6px;"><strong>Paper Advancement:</strong> After printing a line, the paper moves up, and the process repeats until the page is completed.</li>
+              </ol>
+            </div>
           </div>
 
-          <!-- Specifications Table -->
+          <!-- Comparison Table -->
           <div class="detail-section" id="specs-section">
-            <h3 class="section-title">Technical Specifications</h3>
-            <p class="section-subtitle">Standard specifications and metrics configuration for typical Printer units:</p>
+            <h3 class="section-title">Comparison Table</h3>
+            <p class="section-subtitle">Side-by-side technical and operational comparison of common printer types:</p>
             <div class="table-responsive">
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th>Specification Parameter</th>
-                    <th>Standard Value Range</th>
+                    <th>Feature</th>
+                    <th>Laser Printer</th>
+                    <th>Inkjet Printer</th>
+                    <th>Dot Matrix Printer</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="spec-label">Print Technology</td>
-                    <td class="spec-val">Thermal Inkjet / Electrostatic Laser / Dot Matrix Impact</td>
+                    <td class="spec-label">Printing Technology</td>
+                    <td class="spec-val">Uses laser beam + toner powder</td>
+                    <td class="spec-val">Sprays liquid ink through nozzles</td>
+                    <td class="spec-val">Uses pins striking ink ribbon</td>
                   </tr>
                   <tr>
-                    <td class="spec-label">Print Speed</td>
-                    <td class="spec-val">12 - 40 Pages Per Minute (PPM) mono / 8 - 25 PPM color</td>
+                    <td class="spec-label">Print Quality</td>
+                    <td class="spec-val">Very high (sharp text, good graphics)</td>
+                    <td class="spec-val">High for images & color photos</td>
+                    <td class="spec-val">Low (rough text, poor graphics)</td>
                   </tr>
                   <tr>
-                    <td class="spec-label">Resolution</td>
-                    <td class="spec-val">Up to 4800 x 1200 optimized DPI (Inkjet) / 1200 x 1200 DPI (Laser)</td>
+                    <td class="spec-label">Speed</td>
+                    <td class="spec-val">Very fast</td>
+                    <td class="spec-val">Moderate to slow</td>
+                    <td class="spec-val">Slow</td>
                   </tr>
                   <tr>
-                    <td class="spec-label">Connectivity</td>
-                    <td class="spec-val">Wi-Fi 802.11b/g/n, Ethernet Port, High-Speed USB 2.0</td>
+                    <td class="spec-label">Cost of Printer</td>
+                    <td class="spec-val">Medium to high</td>
+                    <td class="spec-val">Low to medium</td>
+                    <td class="spec-val">Low</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Running Cost</td>
+                    <td class="spec-val">Low per page</td>
+                    <td class="spec-val">High (ink expensive)</td>
+                    <td class="spec-val">Very low</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Noise Level</td>
+                    <td class="spec-val">Quiet</td>
+                    <td class="spec-val">Quiet</td>
+                    <td class="spec-val">Very noisy</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Best For</td>
+                    <td class="spec-val">Office, bulk printing, documents</td>
+                    <td class="spec-val">Home use, photos, color printing</td>
+                    <td class="spec-val">Invoice, receipts, continuous paper jobs</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Paper Type</td>
+                    <td class="spec-val">Normal paper</td>
+                    <td class="spec-val">Normal + photo paper</td>
+                    <td class="spec-val">Continuous/form paper</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Maintenance</td>
+                    <td class="spec-val">Low</td>
+                    <td class="spec-val">Moderate (clogging issues)</td>
+                    <td class="spec-val">Low but mechanical wear</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Durability of Output</td>
+                    <td class="spec-val">Long-lasting</td>
+                    <td class="spec-val">Can fade over time</td>
+                    <td class="spec-val">Very long-lasting (carbon copy possible)</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
 
-          <!-- Printer Subtypes -->
-          <div class="detail-section" id="subtypes-section">
-            <h3 class="section-title">Different Types of Printer</h3>
-            <p class="section-subtitle">Below is a breakdown of the primary technological configurations and subcategories of printers available today:</p>
-            <div class="subtypes-grid">
-              <!-- Inkjet Printer -->
-              <div class="subtype-detail-card">
-                <div class="subtype-card-img-wrapper">
-                  <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&q=80&w=400" alt="Inkjet Printer" loading="lazy">
-                </div>
-                <div class="subtype-header">
-                  <h4>Inkjet Printer</h4>
-                </div>
-                <div class="subtype-specs">
-                  <div class="sub-spec-row"><span class="sub-spec-label">Speed:</span><span class="sub-spec-value">Moderate (10 - 20 PPM)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Cost:</span><span class="sub-spec-value">Low unit cost; High ink costs ($30 - $150 unit)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Quality:</span><span class="sub-spec-value">Superb for high-resolution photo and color graphics</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Maintenance:</span><span class="sub-spec-value">High (Nozzles dry out and clog if not operated regularly)</span></div>
-                </div>
-              </div>
-
-              <!-- Laser Printer -->
-              <div class="subtype-detail-card">
-                <div class="subtype-card-img-wrapper">
-                  <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=400" alt="Laser Printer" loading="lazy">
-                </div>
-                <div class="subtype-header">
-                  <h4>Laser Printer</h4>
-                </div>
-                <div class="subtype-specs">
-                  <div class="sub-spec-row"><span class="sub-spec-label">Speed:</span><span class="sub-spec-value">Very High (25 - 50+ PPM)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Cost:</span><span class="sub-spec-value">Higher unit cost; Very low cost per page ($100 - $400 unit)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Quality:</span><span class="sub-spec-value">Sharp, crisp monochrome text; decent color graphics</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Maintenance:</span><span class="sub-spec-value">Low (Toner is a dry polymer powder that does not dry out)</span></div>
-                </div>
-              </div>
-
-              <!-- Dot Matrix Printer -->
-              <div class="subtype-detail-card">
-                <div class="subtype-card-img-wrapper">
-                  <img src="https://images.unsplash.com/photo-1596495578065-6e07cf501135?auto=format&fit=crop&q=80&w=400" alt="Dot Matrix Printer" loading="lazy">
-                </div>
-                <div class="subtype-header">
-                  <h4>Dot Matrix Printer</h4>
-                </div>
-                <div class="subtype-specs">
-                  <div class="sub-spec-row"><span class="sub-spec-label">Speed:</span><span class="sub-spec-value">Slow to Moderate (character-by-character impact)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Cost:</span><span class="sub-spec-value">Very low unit maintenance; cheap ink ribbons ($150 - $300 unit)</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Quality:</span><span class="sub-spec-value">Low resolution; highly pixelated text output</span></div>
-                  <div class="sub-spec-row"><span class="sub-spec-label">Maintenance:</span><span class="sub-spec-value">Very Low (Extremely rugged, handles carbon-copy papers)</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- Buying Guide Recommendations -->
           <div class="detail-section" id="guide-section">
-            <h3 class="section-title">Buying Guide & Recommendations</h3>
-            <p class="section-subtitle">Choose the printing technology appropriate for your output media type and document volume:</p>
+            <h3 class="section-title">Which one is better for buying?</h3>
+            <p class="section-subtitle">Select the technology that matches your usage requirements and printing budget:</p>
+            
             <div class="buying-guide-card">
-              <div class="guide-row">
-                <span class="guide-icon-bullet">
+              <div class="guide-row" style="margin-bottom: 20px;">
+                <span class="guide-icon-bullet" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
                 </span>
                 <div class="guide-text-content">
-                  <strong>For Photo Printing & High-Quality Graphics:</strong> Buy an <strong>Inkjet Printer</strong>. It yields superior color blending, photographic tones, and fine detail on specialized glossy papers.
+                  <strong>1. For home / student use: Inkjet Printer</strong>
+                  <p style="margin: 4px 0 0 0; font-size: 13.5px; color: var(--text-secondary);">
+                    Good for color printing, assignments, photos. However, ink cost is higher over time due to frequent cartridge replacements.
+                  </p>
                 </div>
               </div>
-              <div class="guide-row">
-                <span class="guide-icon-bullet">
+              
+              <div class="guide-row" style="margin-bottom: 20px;">
+                <span class="guide-icon-bullet" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
                 </span>
                 <div class="guide-text-content">
-                  <strong>For Corporate Documents & High Volumes:</strong> Buy a <strong>Laser Printer</strong>. It outputs crisp monochrome text at high speeds with a low cost-per-page, and the toner won't dry out.
+                  <strong>2. For office / high-volume printing: Laser Printer (Best overall choice)</strong>
+                  <p style="margin: 4px 0 0 0; font-size: 13.5px; color: var(--text-secondary);">
+                    Fast, clean, and cheap per page. It is the ideal choice for documents, reports, and large-scale bulk printing operations.
+                  </p>
                 </div>
               </div>
+
               <div class="guide-row">
-                <span class="guide-icon-bullet">
+                <span class="guide-icon-bullet" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
                 </span>
                 <div class="guide-text-content">
-                  <strong>For Multi-Part Carbon Copies (Logistics/Warehouses):</strong> Buy a <strong>Dot Matrix Printer</strong>. Because it works via physical impact pins, it can print through multiple layered forms (e.g. shipping receipts).
+                  <strong>3. For billing, shops, banks: Dot Matrix Printer</strong>
+                  <p style="margin: 4px 0 0 0; font-size: 13.5px; color: var(--text-secondary);">
+                    Works with carbon copies to print multiple duplicate copies simultaneously. Extremely durable and cost-effective, though outdated for general document layout work.
+                  </p>
                 </div>
               </div>
             </div>
@@ -227,92 +351,72 @@
           <!-- Real-Life Applications -->
           <div class="detail-section" id="apps-section">
             <h3 class="section-title">Real-Life Applications</h3>
-            <p class="section-subtitle">How the Printer is utilized across primary organizational sectors:</p>
+            <p class="section-subtitle">How Printers are utilized across primary organizational sectors:</p>
             <div class="apps-grid">
+              <!-- Education Sector -->
               <div class="app-item-card">
                 <div class="app-icon-header">
                   <span class="app-badge-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
                   </span>
-                  <h4>Education Use</h4>
+                  <h4>Education Sector</h4>
                 </div>
                 <p>Used for printing syllabus files, assignments, student report submissions, and study materials.</p>
               </div>
+
+              <!-- Business Environment -->
               <div class="app-item-card">
                 <div class="app-icon-header">
                   <span class="app-badge-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                   </span>
-                  <h4>Business Use</h4>
+                  <h4>Business Environment</h4>
                 </div>
                 <p>Used for printouts of invoices, business reports, marketing proposals, employee handbooks, and contracts.</p>
               </div>
+
+              <!-- Healthcare Sector -->
               <div class="app-item-card">
                 <div class="app-icon-header">
                   <span class="app-badge-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                   </span>
-                  <h4>Healthcare Use</h4>
+                  <h4>Healthcare Sector</h4>
                 </div>
                 <p>Used for printing physical patient logs, laboratory results, medical receipts, and drug prescriptions.</p>
               </div>
+
+              <!-- Banking Sector -->
               <div class="app-item-card">
                 <div class="app-icon-header">
                   <span class="app-badge-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
                   </span>
-                  <h4>Banking Use</h4>
+                  <h4>Banking Sector</h4>
                 </div>
                 <p>Generates paper records of loans, credit audits, ledger logs, and paper balance statements.</p>
               </div>
+
+              <!-- Home Usage -->
               <div class="app-item-card">
                 <div class="app-icon-header">
                   <span class="app-badge-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                   </span>
-                  <h4>Home Use</h4>
+                  <h4>Home Usage</h4>
                 </div>
                 <p>Used for printing recipes, flight tickets, children's worksheets, and personal digital photos.</p>
               </div>
+
+              <!-- Graphic Design and Multimedia -->
               <div class="app-item-card">
                 <div class="app-icon-header">
                   <span class="app-badge-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 22Z"></path><path d="M12 8V16"></path><path d="M8 12H16"></path></svg>
                   </span>
-                  <h4>Graphic Design Use</h4>
+                  <h4>Graphic Design & Multimedia</h4>
                 </div>
-                <p>Essential for creating hardcopy proofs, checking design scales, checking color drafts, and packaging layouts.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pros and Cons -->
-          <div class="detail-section" id="advantages-section">
-            <h3 class="section-title">Advantages and Disadvantages</h3>
-            <p class="section-subtitle">Key trade-offs to evaluate when considering Printer systems:</p>
-            <div class="pros-cons-grid">
-              <div class="pros-card">
-                <div class="card-pros-header">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pros-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                  <h4>Advantages</h4>
-                </div>
-                <ul>
-                  <li>Produces hard copies of digital files for physical reading, archiving, and signing.</li>
-                  <li>Modern photo printers achieve near-lab quality color representation.</li>
-                  <li>Laser technology allows extremely high speed for high-volume document printing.</li>
-                </ul>
-              </div>
-
-              <div class="cons-card">
-                <div class="card-cons-header">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="cons-icon"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                  <h4>Disadvantages</h4>
-                </div>
-                <ul>
-                  <li>Consumables (ink, toner, specialty papers) can be highly expensive over time.</li>
-                  <li>Mechanical components are prone to paper jams, feed errors, and nozzle clogging.</li>
-                  <li>Slow throughput compared to instantaneous digital document sharing.</li>
-                </ul>
+                <p>Invaluable for drawing curves, positioning vectors, dragging timelines in video editors, and precision painting.</p>
               </div>
             </div>
           </div>

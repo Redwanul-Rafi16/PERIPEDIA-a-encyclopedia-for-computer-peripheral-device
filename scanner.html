@@ -101,6 +101,54 @@
             <p class="section-desc-text">
               A scanner works by placing a document on its glass plate and closing the lid. Underneath the glass, a light source (LED or cold cathode fluorescent lamp) illuminates the page. A moving carriage containing a sensor array (typically Charge-Coupled Device (CCD) or Contact Image Sensor (CIS)) sweeps across the document. The sensor captures the reflected light from the document and converts the light intensity into electrical charges. An analog-to-digital converter (ADC) processes these charges into digital pixel values (red, green, and blue coordinates). This binary image data is then sent to the computer to be stored as a graphic file or processed by OCR.
             </p>
+            <!-- High-End & Specialty Working Principles -->
+            <div class="buying-guide-card" style="border-left-color: #8b5cf6; margin-top: 24px; margin-bottom: 24px;">
+              <h4 style="margin-top: 0; color: #8b5cf6; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                Drum Scanner
+              </h4>
+              <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;">
+                Drum scanners use photomultiplier tubes (PMTs) rather than CCDs to provide the highest resolution and color fidelity possible.
+              </p>
+              <h5 style="margin: 12px 0 6px 0; font-size: 14px; color: var(--text-primary);">Working Procedure:</h5>
+              <ol style="padding-left: 20px; margin: 0; line-height: 1.6; font-size: 13.5px; color: var(--text-secondary);">
+                <li style="margin-bottom: 6px;"><strong>Mounting:</strong> The original document or film is taped to an acrylic cylinder (the drum).</li>
+                <li style="margin-bottom: 6px;"><strong>Spinning:</strong> The drum rotates at extremely high speeds.</li>
+                <li style="margin-bottom: 0;"><strong>Scanning:</strong> A light beam moves slowly across the spinning drum, capturing pixels one by one through the highly sensitive PMTs.</li>
+              </ol>
+            </div>
+
+            <div class="buying-guide-card" style="border-left-color: #f43f5e; margin-bottom: 24px;">
+              <h4 style="margin-top: 0; color: #f43f5e; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M2 15h10"></path><path d="M9 18l3-3-3-3"></path></svg>
+                OCR Scanner
+              </h4>
+              <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;">
+                OCR scanners employ software alongside the physical scanning hardware to identify text shapes.
+              </p>
+              <h5 style="margin: 12px 0 6px 0; font-size: 14px; color: var(--text-primary);">Working Procedure:</h5>
+              <ol style="padding-left: 20px; margin: 0; line-height: 1.6; font-size: 13.5px; color: var(--text-secondary);">
+                <li style="margin-bottom: 6px;"><strong>Image Capture:</strong> The scanner takes a standard high-resolution image of the text document.</li>
+                <li style="margin-bottom: 6px;"><strong>Pattern Recognition:</strong> The OCR software analyzes light and dark areas, identifying characters based on their shape.</li>
+                <li style="margin-bottom: 0;"><strong>Text Conversion:</strong> The identified shapes are converted into ASCII text or unicode, creating an editable document file.</li>
+              </ol>
+            </div>
+
+            <div class="buying-guide-card" style="border-left-color: #3b82f6; margin-bottom: 0;">
+              <h4 style="margin-top: 0; color: #3b82f6; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                3D Scanner
+              </h4>
+              <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;">
+                3D scanners use light, lasers, or structured light to measure distance and shape, building a point cloud of an object.
+              </p>
+              <h5 style="margin: 12px 0 6px 0; font-size: 14px; color: var(--text-primary);">Working Procedure:</h5>
+              <ol style="padding-left: 20px; margin: 0; line-height: 1.6; font-size: 13.5px; color: var(--text-secondary);">
+                <li style="margin-bottom: 6px;"><strong>Light Emission:</strong> The scanner projects a laser or light pattern onto the object.</li>
+                <li style="margin-bottom: 6px;"><strong>Distance Measurement:</strong> Sensors measure how the light deforms over the object's geometry or calculate the time-of-flight of a laser.</li>
+                <li style="margin-bottom: 0;"><strong>Digital Reconstruction:</strong> The collected data points are assembled into a 3D digital mesh or model.</li>
+              </ol>
+            </div>
           </div>
 
           <!-- Specifications Table -->
@@ -187,6 +235,209 @@
                   <div class="sub-spec-row"><span class="sub-spec-label">Typical Use:</span><span class="sub-spec-value">Capturing quick receipts, scanning book quotes in libraries, and outdoor surveys.</span></div>
                 </div>
               </div>
+              <!-- Portable Scanner -->
+              <div class="subtype-detail-card">
+                <div class="subtype-header" style="border-left: 4px solid var(--accent); padding-left: 12px;">
+                  <h4 style="margin: 0; font-size: 16px;">Portable Scanner</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top: 0; line-height: 1.5;">
+                    A small, lightweight device used to scan papers, images, or receipts on the go. Runs on batteries or USB power.
+                  </p>
+                  <strong>Key Advantages:</strong>
+                  <ul style="padding-left: 18px; margin: 8px 0 0 0; line-height: 1.5;">
+                    <li>Small and lightweight for travel</li>
+                    <li>Battery or USB powered</li>
+                    <li>Quick and efficient digitizing</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Barcode Scanner -->
+              <div class="subtype-detail-card">
+                <div class="subtype-header" style="border-left: 4px solid var(--accent); padding-left: 12px;">
+                  <h4 style="margin: 0; font-size: 16px;">Barcode Scanner</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top: 0; line-height: 1.5;">
+                    Reads and decodes barcodes to quickly get product or inventory information, often used in retail and storage.
+                  </p>
+                  <strong>Key Advantages:</strong>
+                  <ul style="padding-left: 18px; margin: 8px 0 0 0; line-height: 1.5;">
+                    <li>Improves efficiency in tracking</li>
+                    <li>Fast decoding of barcodes</li>
+                    <li>Seamless POS integration</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Drum Scanner -->
+              <div class="subtype-detail-card">
+                <div class="subtype-header" style="border-left: 4px solid var(--accent); padding-left: 12px;">
+                  <h4 style="margin: 0; font-size: 16px;">Drum Scanner</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top: 0; line-height: 1.5;">
+                    A high-end scanner using photomultiplier tubes (PMTs) to capture images with extreme resolution and color fidelity.
+                  </p>
+                  <strong>Key Advantages:</strong>
+                  <ul style="padding-left: 18px; margin: 8px 0 0 0; line-height: 1.5;">
+                    <li>Ultra-high resolution and color</li>
+                    <li>Perfect for fine art reproduction</li>
+                    <li>Highest quality among all scanners</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- OCR Scanner -->
+              <div class="subtype-detail-card">
+                <div class="subtype-header" style="border-left: 4px solid var(--accent); padding-left: 12px;">
+                  <h4 style="margin: 0; font-size: 16px;">OCR Scanner</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top: 0; line-height: 1.5;">
+                    Translates printed or handwritten text into editable and searchable digital formats using Optical Character Recognition.
+                  </p>
+                  <strong>Key Advantages:</strong>
+                  <ul style="padding-left: 18px; margin: 8px 0 0 0; line-height: 1.5;">
+                    <li>Digitizes books and bills</li>
+                    <li>Creates editable digital text</li>
+                    <li>Improves document accessibility</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Overhead Scanner -->
+              <div class="subtype-detail-card">
+                <div class="subtype-header" style="border-left: 4px solid var(--accent); padding-left: 12px;">
+                  <h4 style="margin: 0; font-size: 16px;">Overhead Scanner</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top: 0; line-height: 1.5;">
+                    Uses a built-in camera and light source to scan books or items from above without requiring direct touch.
+                  </p>
+                  <strong>Key Advantages:</strong>
+                  <ul style="padding-left: 18px; margin: 8px 0 0 0; line-height: 1.5;">
+                    <li>Non-destructive scanning</li>
+                    <li>Great for delicate bound materials</li>
+                    <li>Fast captures from above</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 3D Scanner -->
+              <div class="subtype-detail-card">
+                <div class="subtype-header" style="border-left: 4px solid var(--accent); padding-left: 12px;">
+                  <h4 style="margin: 0; font-size: 16px;">3D Scanner</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top: 0; line-height: 1.5;">
+                    Scans actual physical items from many angles, capturing their shape and characteristics into a digital 3D model.
+                  </p>
+                  <strong>Key Advantages:</strong>
+                  <ul style="padding-left: 18px; margin: 8px 0 0 0; line-height: 1.5;">
+                    <li>Captures exact shapes and features</li>
+                    <li>Useful in engineering and gaming</li>
+                    <li>Creates accurate 3D models</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Photo Scanner -->
+              <div class="subtype-detail-card">
+                <div class="subtype-header" style="border-left: 4px solid var(--accent); padding-left: 12px;">
+                  <h4 style="margin: 0; font-size: 16px;">Photo Scanner</h4>
+                </div>
+                <div style="padding: 16px; font-size: 13.5px; color: var(--text-secondary);">
+                  <p style="margin-top: 0; line-height: 1.5;">
+                    Designed specifically to scan images at high resolution and color accuracy, catching minute details and subtleties.
+                  </p>
+                  <strong>Key Advantages:</strong>
+                  <ul style="padding-left: 18px; margin: 8px 0 0 0; line-height: 1.5;">
+                    <li>High color accuracy</li>
+                    <li>Preserves old photographs flawlessly</li>
+                    <li>Optimized for image reproduction</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comparison Table -->
+          <div class="detail-section" id="comparison-section">
+            <h3 class="section-title">Comparison Tables</h3>
+            <!-- Comparison: Specialized Workloads (Document vs Photo) -->
+            <h4 style="margin-top: 0; color: var(--text-primary);">Comparison: Specialized Workloads</h4>
+            <div class="table-responsive">
+              <table class="specs-table">
+                <thead>
+                  <tr>
+                     <th>Feature</th>
+                     <th>Flatbed Scanner</th>
+                     <th>Sheet-fed Scanner</th>
+                     <th>Drum Scanner</th>
+                     <th>Overhead Scanner</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="spec-label">Ideal For</td>
+                    <td class="spec-val">Fragile documents, books</td>
+                    <td class="spec-val">Bulk office paperwork</td>
+                    <td class="spec-val">High-end fine art / film</td>
+                    <td class="spec-val">Thick or bound books</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Quality / Resolution</td>
+                    <td class="spec-val">High (up to 4800 DPI)</td>
+                    <td class="spec-val">Moderate (600 DPI)</td>
+                    <td class="spec-val">Extremely High</td>
+                    <td class="spec-val">High (Camera based)</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Speed</td>
+                    <td class="spec-val">Slow</td>
+                    <td class="spec-val">Very Fast (ADF)</td>
+                    <td class="spec-val">Very Slow</td>
+                    <td class="spec-val">Moderate to Fast</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Comparison: Portability & Convenience -->
+            <h4 style="margin-top: 32px; color: var(--text-primary);">Comparison: Portability & Convenience</h4>
+            <div class="table-responsive">
+              <table class="specs-table">
+                <thead>
+                  <tr>
+                     <th>Feature</th>
+                     <th>Handheld Scanner</th>
+                     <th>Portable Scanner</th>
+                     <th>Barcode Scanner</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="spec-label">Form Factor</td>
+                    <td class="spec-val">Small stick / wand</td>
+                    <td class="spec-val">Compact flat slot</td>
+                    <td class="spec-val">Gun / wand grip</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Use Case</td>
+                    <td class="spec-val">Book quotes, on-the-go scans</td>
+                    <td class="spec-val">Travel receipts, business cards</td>
+                    <td class="spec-val">Retail POS, inventory tracking</td>
+                  </tr>
+                  <tr>
+                    <td class="spec-label">Image Stability</td>
+                    <td class="spec-val">Low (Relies on hand steadiness)</td>
+                    <td class="spec-val">Moderate (Mechanically fed)</td>
+                    <td class="spec-val">N/A (Reads codes)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
@@ -195,7 +446,7 @@
             <h3 class="section-title">Buying Guide & Recommendations</h3>
             <p class="section-subtitle">Determine which scanner format aligns with your archiving frequency and document media properties:</p>
             <div class="buying-guide-card">
-              <div class="guide-row">
+              <div class="guide-row" style="margin-bottom: 20px;">
                 <span class="guide-icon-bullet">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
                 </span>
@@ -203,7 +454,7 @@
                   <strong>For High-Fidelity Photos, Artwork & Books:</strong> Buy a <strong>Flatbed Scanner</strong>. Its stable, flat glass bed prevents damage to fragile originals and supports extremely high optical resolutions for fine art reproduction.
                 </div>
               </div>
-              <div class="guide-row">
+              <div class="guide-row" style="margin-bottom: 20px;">
                 <span class="guide-icon-bullet">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
                 </span>
@@ -211,12 +462,35 @@
                   <strong>For High-Volume Office Document Archiving:</strong> Buy a <strong>Sheet-fed Scanner</strong>. With its automatic document feeder, it can scan stacks of double-sided pages in seconds, saving immense time in paperless offices.
                 </div>
               </div>
-              <div class="guide-row">
+              <div class="guide-row" style="margin-bottom: 20px;">
                 <span class="guide-icon-bullet">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
                 </span>
                 <div class="guide-text-content">
                   <strong>For Researchers, Students & Mobile Work:</strong> Buy a <strong>Handheld Scanner</strong>. It operates on battery power, enabling users to scan book excerpts, receipts, or documents on the fly without needing a power outlet.
+                </div>
+              <div class="guide-row" style="margin-bottom: 20px;">
+                <span class="guide-icon-bullet" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>Choose a Drum or Photo Scanner if:</strong> You are a professional photographer or archivist needing the highest possible detail, color fidelity, and resolution for film, negatives, or fine art.
+                </div>
+              </div>
+              <div class="guide-row" style="margin-bottom: 20px;">
+                <span class="guide-icon-bullet" style="background: rgba(244, 63, 94, 0.1); color: #f43f5e;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>Choose an OCR or Overhead Scanner if:</strong> You work in a library, law office, or archive where you frequently digitize thick bound books without destroying them, or need to instantly convert printed paper into searchable text.
+                </div>
+              </div>
+              <div class="guide-row">
+                <span class="guide-icon-bullet" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                </span>
+                <div class="guide-text-content">
+                  <strong>Choose a 3D Scanner if:</strong> You are in manufacturing, healthcare, or game design and need to import the physical geometry of an object into CAD software or game engines.
                 </div>
               </div>
             </div>

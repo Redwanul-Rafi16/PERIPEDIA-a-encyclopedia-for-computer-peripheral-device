@@ -1,4 +1,5 @@
 // Peripheral Device Encyclopedia ("Peripedia") - script.js
+localStorage.setItem("gemini_api_key", "AQ.Ab8RN6I-Dcc-upOktizKECXCftI7COe8DLH3CGbCPxHJv3x96Q");
 
 // 1. Shared Database for Comparison Engine
 const COMPARE_DATABASE = {
@@ -1071,7 +1072,7 @@ async function callGeminiAPI(prompt, systemInstruction = "", formatJson = false)
     throw new Error("API_KEY_MISSING");
   }
   
-  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
   
   const requestBody = {
     contents: [{ parts: [{ text: prompt }] }],
@@ -1233,7 +1234,9 @@ function appendChatMessage(sender, text, container) {
   container.appendChild(row);
   
   // Auto scroll
-  container.scrollTop = container.scrollHeight;
+  setTimeout(() => {
+    container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+  }, 10);
 }
 
 // Floating widget message send handler
@@ -1262,6 +1265,9 @@ window.sendFloatingChatMessage = async function() {
     </div>
   `;
   viewport.appendChild(indicator);
+  setTimeout(() => {
+    viewport.scrollTo({ top: viewport.scrollHeight, behavior: 'smooth' });
+  }, 10);
   viewport.scrollTop = viewport.scrollHeight;
 
   try {
@@ -1998,6 +2004,9 @@ window.sendConsoleChatMessage = async function() {
     </div>
   `;
   viewport.appendChild(indicator);
+  setTimeout(() => {
+    viewport.scrollTo({ top: viewport.scrollHeight, behavior: 'smooth' });
+  }, 10);
   viewport.scrollTop = viewport.scrollHeight;
 
   try {
@@ -2027,6 +2036,10 @@ window.sendConsoleChatMessage = async function() {
     rows.forEach(r => r.remove());
     if (error.message === "API_KEY_MISSING") {
       appendChatMessage("ai", "Gemini API Key is missing. Please click the 'Configure API Key' button above to link your key, or operate in simulation mode.", viewport);
+    } else if (error.message.includes("high demand") || error.message.includes("503") || error.message.includes("429")) {
+      console.warn("API overloaded, falling back to simulator.");
+      const fallbackResponse = simulateAiResponse(msg) || "I'm sorry, the Google Gemini API is currently overloaded with high demand. As a fallback, my offline simulator couldn't find a canned answer for your question. Please try asking about specific peripherals like 'mouse' or 'keyboard', or try the AI again later!";
+      appendChatMessage("ai", `**[Offline Fallback]** ${fallbackResponse}`, viewport);
     } else {
       appendChatMessage("ai", `Error communicating with AI: ${error.message}`, viewport);
     }
