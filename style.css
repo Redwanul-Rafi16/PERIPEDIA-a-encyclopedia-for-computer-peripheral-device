@@ -2516,3 +2516,525 @@ main.main-viewport {
   display: none;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   E-LIBRARY PAGE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero Section ── */
+.elib-hero {
+  text-align: center;
+  padding: 56px 24px 40px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.elib-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid hsla(221, 83%, 53%, 0.25);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 20px;
+}
+
+.elib-hero-title {
+  font-family: var(--font-headings);
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.elib-hero-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 auto 36px;
+}
+
+/* Stats Row */
+.elib-stats-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 16px 32px;
+  box-shadow: var(--card-shadow);
+}
+
+.elib-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0 28px;
+}
+
+.elib-stat-num {
+  font-family: var(--font-headings);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.elib-stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.elib-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border-color);
+  flex-shrink: 0;
+}
+
+/* ── Filter Bar ── */
+.elib-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 0 24px 36px;
+}
+
+.elib-filter-btn {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.elib-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+.elib-filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: var(--accent-shadow);
+}
+
+/* ── Book Card Grid ── */
+.elib-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  padding: 0 24px 60px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ── Individual Book Card ── */
+.elib-book-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.elib-book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--box-shadow-lg);
+}
+
+/* Book Cover */
+.elib-book-cover {
+  position: relative;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.elib-cover-icon {
+  position: relative;
+  z-index: 2;
+  opacity: 0.95;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+  transition: transform 0.3s ease;
+}
+
+.elib-book-card:hover .elib-cover-icon {
+  transform: scale(1.1) translateY(-3px);
+}
+
+/* Decorative lines on cover */
+.elib-cover-lines {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 20px;
+  opacity: 0.18;
+}
+
+.elib-cover-lines span {
+  display: block;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.elib-cover-lines span:nth-child(1) { width: 70%; }
+.elib-cover-lines span:nth-child(2) { width: 55%; }
+.elib-cover-lines span:nth-child(3) { width: 40%; }
+
+/* Category badge on cover */
+.elib-cover-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* Card Body */
+.elib-book-body {
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+
+.elib-book-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.elib-book-category {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.elib-book-category.input {
+  background: hsla(160, 70%, 42%, 0.12);
+  color: hsl(160, 55%, 38%);
+}
+
+.elib-book-category.output {
+  background: hsla(280, 70%, 55%, 0.12);
+  color: hsl(280, 55%, 50%);
+}
+
+.elib-book-category.hardware {
+  background: hsla(195, 80%, 42%, 0.12);
+  color: hsl(195, 65%, 38%);
+}
+
+[data-theme="dark"] .elib-book-category.input  { color: hsl(160, 65%, 55%); }
+[data-theme="dark"] .elib-book-category.output { color: hsl(280, 75%, 70%); }
+[data-theme="dark"] .elib-book-category.hardware { color: hsl(195, 75%, 60%); }
+
+.elib-book-pages {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.elib-book-title {
+  font-family: var(--font-headings);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.elib-book-desc {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+  flex: 1;
+}
+
+/* Topic tags */
+.elib-book-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.elib-topic-tag {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-light);
+  border-radius: var(--border-radius-sm);
+  padding: 3px 10px;
+  border: 1px solid hsla(221, 83%, 53%, 0.2);
+}
+
+/* Action Buttons */
+.elib-book-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.elib-btn-read,
+.elib-btn-download {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 14px;
+  border-radius: var(--border-radius-md);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.elib-btn-read {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  box-shadow: var(--accent-shadow);
+}
+
+.elib-btn-read:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px -5px hsla(221, 83%, 53%, 0.4);
+}
+
+.elib-btn-download {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.elib-btn-download:hover {
+  background: var(--bg-card);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* ── PDF Reader Modal ── */
+.pdf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeInOverlay 0.2s ease;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.pdf-modal-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  width: 100%;
+  max-width: 960px;
+  height: min(90vh, 820px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.45);
+  animation: slideUpModal 0.25s ease;
+  overflow: hidden;
+}
+
+@keyframes slideUpModal {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pdf-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+}
+
+.pdf-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.pdf-modal-title-group svg {
+  color: var(--accent);
+}
+
+.pdf-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pdf-modal-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--border-radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.pdf-modal-dl-btn:hover {
+  background: var(--accent-hover);
+}
+
+.pdf-modal-close-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.pdf-modal-close-btn:hover {
+  background: var(--bg-card);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pdf-modal-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+#pdf-viewer-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #525659;
+}
+
+/* ── Empty State ── */
+.elib-empty-state {
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--text-secondary);
+}
+
+.elib-empty-state svg {
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+.elib-empty-state p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .elib-hero {
+    padding: 40px 16px 28px;
+  }
+
+  .elib-stats-row {
+    padding: 14px 16px;
+  }
+
+  .elib-stat-item {
+    padding: 0 16px;
+  }
+
+  .elib-grid {
+    grid-template-columns: 1fr;
+    padding: 0 16px 48px;
+  }
+
+  .elib-book-actions {
+    flex-direction: column;
+  }
+
+  .pdf-modal-box {
+    height: 90vh;
+    border-radius: var(--border-radius-md);
+  }
+
+  .pdf-modal-dl-btn span {
+    display: none;
+  }
+}
+
+
